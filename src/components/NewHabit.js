@@ -1,11 +1,12 @@
 import React, { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import axios from 'axios'
+import apiUtils from '../utils/api.utils'
 
 export const NewHabit = () => {
   const [description, setDescription] = useState(' ')
 
-  const navigate = useNavigate()
+  //   const navigate = useNavigate()
 
   const handleSubmit = async (e) => {
     e.preventDefault()
@@ -15,13 +16,7 @@ export const NewHabit = () => {
     }
 
     console.log(addNewHabit)
-    try {
-      const { data } = await axios.post('http://localhost:6000', addNewHabit)
-      const id = data.ops[0]._id
-      navigate(`/habit/${id}`)
-    } catch (error) {
-      console.log(error)
-    }
+    await apiUtils.addNewHabit(addNewHabit)
   }
 
   return (

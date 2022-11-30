@@ -3,7 +3,7 @@ import axios from 'axios'
 class Api {
   constructor() {
     this.api = axios.create({
-      baseURL: 'http://localhost:6000/',
+      baseURL: 'https://dopamine-habit-server.cyclic.app/',
     })
 
     this.api.interceptors.request.use(
@@ -56,6 +56,17 @@ class Api {
       return data
     } catch (error) {
       throw error
+    }
+  }
+
+  addNewHabit = async (newHabit) => {
+    try {
+      const { data } = await this.api.post('/habit', newHabit)
+      return data
+      //   const id = data.ops[0]._id
+      //   navigate(`/habit/${id}`)
+    } catch (error) {
+      console.log(error)
     }
   }
 }
