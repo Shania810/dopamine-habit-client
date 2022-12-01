@@ -1,6 +1,12 @@
 import React from 'react'
-import { Nav } from './commons.js'
+import { Anchor, Nav, NavButton } from './commons.js'
 
 export const NavBar = () => {
-  return <Nav></Nav>
+  return (
+    <Nav>
+      <Anchor to="/"> Home </Anchor>
+      <NavButton to="/habit"> My Habits </NavButton>
+      <NavButton to="/challenge"> Challenges </NavButton>
+    </Nav>
+  )
 }
