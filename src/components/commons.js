@@ -44,6 +44,7 @@ export const Title = styled.h1`
   font-family: optima;
   font-weight: light;
   font-size: 3em;
+  justify-content: center;
   align-items: right;
   border: 7px solid bisque;
   border-radius: 26%;
