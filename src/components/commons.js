@@ -33,3 +33,7 @@ export const Button = styled(Link)`
   background-color: black;
   border-radius: 18%;
 `
+export const Card = styled.div`
+  /*border:1px solid black;
+  width: 40%*/
+`
