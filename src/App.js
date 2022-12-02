@@ -12,7 +12,6 @@ function App() {
   return (
     <div className="App">
       <NavBar />
-      <h1>Dopamine Habit</h1>
       <Routes>
         <Route path="/" element=<Home /> />
         <Route path="/signup" element=<Signup /> />

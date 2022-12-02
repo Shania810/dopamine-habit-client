@@ -2,7 +2,7 @@ import { Link } from 'react-router-dom'
 import styled from 'styled-components'
 
 export const Nav = styled.nav`
-  background-color: lavender;
+  background-color: bisque;
   float: left;
   display: flex;
   flex-direction: column;
@@ -13,23 +13,42 @@ export const Nav = styled.nav`
 `
 export const NavButton = styled(Link)`
   text-decoration: none;
-  padding: 3px;
-  margin: 5px;
-  border: 0.5 solid black;
+  font-family: optima;
+  border: 0.5px solid midnightblue;
+  padding: 12px;
+  margin: 13px;
   border-radius: 15%;
-  color: gray;
-  background-color: white;
+  color: cornflowerblue;
+  background-color: cornsilk;
 `
 export const Anchor = styled(Link)`
   text-decoration: none;
-  color: gray;
+  padding: 6px;
+  margin-top: 11px;
+  color: midnightblue;
 `
 export const Button = styled(Link)`
   text-decoration: none;
-  padding: 5px;
-  margin: 10px;
-  border: 2 dotted white;
-  color: white;
-  background-color: black;
-  border-radius: 18%;
+  font-size: 1em;
+  font-family: optima;
+  color: midnightblue;
+  background-color: lightsteelblue;
+  margin: 1em;
+  padding: 0.25em 1em;
+  border: 2px solid royalblue;
+  border-radius: 12%;
+`
+export const Title = styled.h1`
+  display: flex;
+  flex-direction: row;
+  font-family: optima;
+  font-weight: light;
+  font-size: 3em;
+  align-items: right;
+  border: 7px solid bisque;
+  border-radius: 26%;
+  padding: 70px;
+  margin: 20 80 20 20px;
+  color: midnightblue;
+  background-color: blanchealmond;
 `
