@@ -1,10 +1,14 @@
 import React, { useState } from 'react'
+import { useNavigate } from 'react-router-dom'
 import Api from '../utils/api.utils'
 
 const Signup = () => {
   const [username, setUsername] = useState('')
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
+  const [error, setError] = useState('')
+
+  const sendToLogin = useNavigate()
 
   const handleSubmit = async (e) => {
     e.preventDefault()
@@ -15,7 +19,9 @@ const Signup = () => {
     }
     try {
       await Api.signup(newUser)
+      sendToLogin('/login')
     } catch (error) {
+      setError(error)
       console.log(error)
     }
   }
@@ -47,7 +53,7 @@ const Signup = () => {
 
         <label>password</label>
         <input
-          type="text"
+          type="password"
           value={password}
           onChange={(e) => {
             setPassword(e.target.value)
@@ -55,6 +61,7 @@ const Signup = () => {
         />
         <button>Submit</button>
       </form>
+      {error && <p> {error} </p>}
     </div>
   )
 }

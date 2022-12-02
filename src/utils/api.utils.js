@@ -59,6 +59,15 @@ class Api {
     }
   }
 
+  getChallenges = async () => {
+    try {
+      const { data } = await this.api.get('/challenge')
+      return data
+    } catch (error) {
+      throw error
+    }
+  }
+
   addNewHabit = async (newHabit) => {
     try {
       const { data } = await this.api.post('/habit', newHabit)

@@ -1,9 +1,14 @@
 import React, { useState } from 'react'
+import { useNavigate } from 'react-router-dom'
 import Api from '../utils/api.utils'
 
 const Login = () => {
   const [username, setUsername] = useState('')
   const [password, setPassword] = useState('')
+  const [error, setError] = useState('')
+
+  const sendToHabits = useNavigate()
+  const userNotFound = useNavigate()
 
   const handleSubmit = async (e) => {
     e.preventDefault()
@@ -13,7 +18,9 @@ const Login = () => {
     }
     try {
       await Api.login(newLogin)
+      sendToHabits('/challenge')
     } catch (error) {
+      setError(error)
       console.log(error)
     }
   }
@@ -36,7 +43,7 @@ const Login = () => {
 
         <label>password</label>
         <input
-          type="text"
+          type="password"
           value={password}
           onChange={(e) => {
             setPassword(e.target.value)
@@ -44,6 +51,7 @@ const Login = () => {
         />
         <button>Submit</button>
       </form>
+      {error === 'User not found' ? userNotFound('/signup') : <p>{error}</p>}
     </div>
   )
 }
