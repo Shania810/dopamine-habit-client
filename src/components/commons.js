@@ -53,6 +53,7 @@ export const Title = styled.h1`
   color: midnightblue;
   background-color: blanchealmond;
 `
+
 export const SignupForm = styled.form`
   display: flex;
   flex-direction: column;
@@ -67,4 +68,9 @@ export const SignupInput = styled.input`
   padding: 5px;
   margin: 10px;
   color: ${(props) => props.type || 'cornflowerblue'};
+`
+
+export const Card = styled.div`
+  border: 1px solid black;
+  width: 40%;
 `
