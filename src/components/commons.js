@@ -53,3 +53,7 @@ export const Title = styled.h1`
   color: midnightblue;
   background-color: blanchealmond;
 `
+export const Card = styled.div`
+  /*border:1px solid black;
+  width: 40%*/
+`
