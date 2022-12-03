@@ -1,6 +1,6 @@
-import React from 'react'
-import { Header } from './commons.js'
+// import React from 'react'
+// import { Header } from './commons.js'
 
-export const Header = () => {
-  return <Header></Header>
-}
+// export const Header = () => {
+//   return <Header></Header>
+// }

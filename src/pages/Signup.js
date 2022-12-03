@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { UploadImageForm } from '../components/UploadImageForm'
-import { Button, SignupForm, SignupInput } from '../components/commons'
+import { SignupForm, SignupInput } from '../components/commons'
 import Api from '../utils/api.utils'
 
 const Signup = () => {
@@ -10,18 +10,18 @@ const Signup = () => {
   const [password, setPassword] = useState('')
   const [error, setError] = useState('')
 
-  const [imageURL,setImageURL] = useState('')
-  const [file,setFile] = useState(null)
-  const handleChangeImg = (e) =>{
+  const [imageURL, setImageURL] = useState('')
+  const [file, setFile] = useState(null)
+  const handleChangeImg = (e) => {
     const fileObject = e.target.files[0]
     setFile(fileObject)
-    if(file){
-    const imageURL = URL.createObjectURL(fileObject)
-    setImageURL(imageURL)
-    }else{
-        setImageURL('')
+    if (file) {
+      const imageURL = URL.createObjectURL(fileObject)
+      setImageURL(imageURL)
+    } else {
+      setImageURL('')
     }
-}
+  }
 
   const sendToLogin = useNavigate()
 
@@ -48,7 +48,10 @@ const Signup = () => {
           handleSubmit(e)
         }}
       >
-      <UploadImageForm imageURL={imageURL} handleChangeImg={handleChangeImg} />
+        <UploadImageForm
+          imageURL={imageURL}
+          handleChangeImg={handleChangeImg}
+        />
         <label>username</label>
         <SignupInput
           type="text"
@@ -75,7 +78,7 @@ const Signup = () => {
             setPassword(e.target.value)
           }}
         />
-        <Button>Submit</Button>
+        <button>Submit</button>
       </SignupForm>
       {error && <p> {error} </p>}
     </div>

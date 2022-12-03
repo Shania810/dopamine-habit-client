@@ -1,4 +1,5 @@
 import axios from 'axios'
+
 class Api {
   constructor() {
     this.api = axios.create({
@@ -34,7 +35,7 @@ class Api {
 
   signup = async (signupInfo) => {
     try {
-      await this.api.post('/signup',signupInfo)
+      await this.api.post('/signup', signupInfo)
     } catch (error) {
       throw error.response.data.message
     }
@@ -71,10 +72,16 @@ class Api {
     try {
       const { data } = await this.api.post('/habit', newHabit)
       return data
-      //   const id = data.ops[0]._id
-      //   navigate(`/habit/${id}`)
     } catch (error) {
-      console.log(error)
+      throw error
+    }
+  }
+
+  deleteHabit = async (id) => {
+    try {
+      await this.api.delete(`/habit/${id}`)
+    } catch (error) {
+      throw error
     }
   }
 }

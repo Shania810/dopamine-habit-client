@@ -1,24 +1,39 @@
-import React, { useEffect, useState } from 'react'
-import Api from '../utils/api.utils'
+import React, { useEffect } from 'react'
+import apiUtils from '../utils/api.utils'
+import { RealButton } from './commons'
 
-const Habit = (props) => {
-  const [habits, setHabits] = useState([])
-  const getHabit = async () => {
+const Habit = ({ getHabit, habits }) => {
+  useEffect(() => {
+    getHabit()
+  })
+
+  const deleteHabit = async (id) => {
     try {
-      const data = await Api.getHabits()
-      setHabits(data)
+      await apiUtils.deleteHabit(id)
+      await getHabit()
     } catch (error) {
       console.log(error)
     }
   }
 
-  useEffect(() => {
-    getHabit()
-  }, [])
-  console.log(habits)
   return (
     <div>
-      <h1>Habit</h1>
+      {habits.map((habit) => {
+        return (
+          <div>
+            <p>
+              {habit.title} {habit.description}
+            </p>
+            <RealButton
+              onClick={() => {
+                deleteHabit(habit._id)
+              }}
+            >
+              Delete
+            </RealButton>
+          </div>
+        )
+      })}
     </div>
   )
 }

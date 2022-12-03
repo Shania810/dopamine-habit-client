@@ -55,8 +55,8 @@ export const Title = styled.h1`
 `
 
 export const ImageProfile = styled.img`
-width: 100px;
-height:100px;
+  width: 100px;
+  height: 100px;
 `
 
 export const SignupForm = styled.form`
@@ -78,4 +78,15 @@ export const SignupInput = styled.input`
 export const Card = styled.div`
   border: 1px solid black;
   width: 40%;
+`
+export const RealButton = styled.button`
+  text-decoration: none;
+  font-size: 1em;
+  font-family: optima;
+  color: midnightblue;
+  background-color: lightsteelblue;
+  margin: 1em;
+  padding: 0.25em 1em;
+  border: 2px solid royalblue;
+  border-radius: 12%;
 `
