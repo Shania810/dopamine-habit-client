@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
+import { UploadImageForm } from '../components/UploadImageForm'
 import Api from '../utils/api.utils'
 
 const Signup = () => {
@@ -7,6 +8,19 @@ const Signup = () => {
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
   const [error, setError] = useState('')
+
+  const [imageURL,setImageURL] = useState('')
+  const [file,setFile] = useState(null)
+  const handleChangeImg = (e) =>{
+    const fileObject = e.target.files[0]
+    setFile(fileObject)
+    if(file){
+    const imageURL = URL.createObjectURL(fileObject)
+    setImageURL(imageURL)
+    }else{
+        setImageURL('')
+    }
+}
 
   const sendToLogin = useNavigate()
 
@@ -18,7 +32,7 @@ const Signup = () => {
       password,
     }
     try {
-      await Api.signup(newUser)
+      await Api.signup(newUser,file)
       sendToLogin('/login')
     } catch (error) {
       setError(error)
@@ -33,6 +47,7 @@ const Signup = () => {
           handleSubmit(e)
         }}
       >
+      <UploadImageForm imageURL={imageURL} handleChangeImg={handleChangeImg} />
         <label>username</label>
         <input
           type="text"

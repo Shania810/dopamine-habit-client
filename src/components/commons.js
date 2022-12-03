@@ -53,3 +53,7 @@ export const Title = styled.h1`
   color: midnightblue;
   background-color: blanchealmond;
 `
+export const ImageProfile = styled.img`
+width: 100px;
+height:100px;
+`
