@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { UploadImageForm } from '../components/UploadImageForm'
+import { Button, SignupForm, SignupInput } from '../components/commons'
 import Api from '../utils/api.utils'
 
 const Signup = () => {
@@ -32,7 +33,7 @@ const Signup = () => {
       password,
     }
     try {
-      await Api.signup(newUser,file)
+      await Api.signup(newUser)
       sendToLogin('/login')
     } catch (error) {
       setError(error)
@@ -42,14 +43,14 @@ const Signup = () => {
 
   return (
     <div>
-      <form
+      <SignupForm
         onSubmit={(e) => {
           handleSubmit(e)
         }}
       >
       <UploadImageForm imageURL={imageURL} handleChangeImg={handleChangeImg} />
         <label>username</label>
-        <input
+        <SignupInput
           type="text"
           value={username}
           onChange={(e) => {
@@ -74,8 +75,8 @@ const Signup = () => {
             setPassword(e.target.value)
           }}
         />
-        <button>Submit</button>
-      </form>
+        <Button>Submit</Button>
+      </SignupForm>
       {error && <p> {error} </p>}
     </div>
   )
