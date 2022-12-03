@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
+import { Button, SignupForm, SignupInput } from '../components/commons'
 import Api from '../utils/api.utils'
 
 const Signup = () => {
@@ -28,13 +29,13 @@ const Signup = () => {
 
   return (
     <div>
-      <form
+      <SignupForm
         onSubmit={(e) => {
           handleSubmit(e)
         }}
       >
         <label>username</label>
-        <input
+        <SignupInput
           type="text"
           value={username}
           onChange={(e) => {
@@ -59,8 +60,8 @@ const Signup = () => {
             setPassword(e.target.value)
           }}
         />
-        <button>Submit</button>
-      </form>
+        <Button>Submit</Button>
+      </SignupForm>
       {error && <p> {error} </p>}
     </div>
   )

@@ -53,3 +53,18 @@ export const Title = styled.h1`
   color: midnightblue;
   background-color: blanchealmond;
 `
+export const SignupForm = styled.form`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+`
+export const SignupInput = styled.input`
+  height: 30px;
+  width: 250px;
+  border: 2px solid midnightblue;
+  border-radius: 10%;
+  background-color: blanchealmond;
+  padding: 5px;
+  margin: 10px;
+  color: ${(props) => props.type || 'cornflowerblue'};
+`
