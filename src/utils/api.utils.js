@@ -1,5 +1,4 @@
 import axios from 'axios'
-
 class Api {
   constructor() {
     this.api = axios.create({
@@ -35,7 +34,7 @@ class Api {
 
   signup = async (signupInfo) => {
     try {
-      await this.api.post('/signup', signupInfo)
+      await this.api.post('/signup',signupInfo)
     } catch (error) {
       throw error.response.data.message
     }
