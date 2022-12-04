@@ -84,6 +84,23 @@ class Api {
       throw error
     }
   }
+
+  // getOneChallenge = async (id) => {
+  //   try {
+  //     const { data } = await this.api.get(`/challenge/${id}`)
+  //     return data
+  //   } catch (error) {
+  //     throw error
+  //   }
+  // }
+
+  // challengeToHabit = async (newHabit) => {
+  //   try {
+  //     await this.api.post('/habit', newHabit)
+  //   } catch (error) {
+  //     throw error
+  //   }
+  // }
 }
 
 export default new Api()

@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import Habit from '../components/Habit'
 import { NewHabit } from '../components/NewHabit'
-import { Title } from '../components/commons'
+import { SubTitle } from '../components/commons'
 import Api from '../utils/api.utils'
 
 export const MyHabits = () => {
@@ -14,9 +14,10 @@ export const MyHabits = () => {
       console.log(error)
     }
   }
+
   return (
     <div>
-      <Title>My Habits</Title>
+      <SubTitle>My Habits</SubTitle>
       <NewHabit getHabit={getHabit} />
       <Habit getHabit={getHabit} habits={habits} />
     </div>
