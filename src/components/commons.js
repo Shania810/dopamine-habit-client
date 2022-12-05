@@ -53,12 +53,6 @@ export const Title = styled.h1`
   color: midnightblue;
   background-color: blanchealmond;
 `
-
-export const ImageProfile = styled.img`
-  width: 100px;
-  height: 100px;
-`
-
 export const SignupForm = styled.form`
   display: flex;
   flex-direction: column;
@@ -153,4 +147,9 @@ export const ChallengeRec = styled.p`
   margin: 1px;
   justify-content: center;
   color: sandybrown;
+`
+export const ImageProfile = styled.img`
+  width:50px;
+  height:50px;
+  border-radius:50px;
 `

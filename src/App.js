@@ -6,6 +6,7 @@ import Login from './pages/Login'
 import { NavBar } from './components/NavBar.js'
 import { Home } from './pages/Home'
 import { MyHabits } from './pages/MyHabits'
+import { User } from './components/User'
 
 function App() {
   return (
@@ -16,6 +17,7 @@ function App() {
         <Route path="/signup" element=<Signup /> />
         <Route path="/login" element=<Login /> />
         <Route path="/habit" element=<MyHabits /> />
+        <Route path="/user" element=<User/> />
         <Route path="/challenge" element=<Challenge /> />
       </Routes>
     </div>

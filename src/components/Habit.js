@@ -1,15 +1,10 @@
-import React, { useEffect } from 'react'
-import apiUtils from '../utils/api.utils'
+import React  from 'react'
 import { RealButton } from './commons'
-
-const Habit = ({ getHabit, habits }) => {
-  useEffect(() => {
-    getHabit()
-  })
-
+import Api from '../utils/api.utils'
+const Habit = ({habits,getHabit}) => {
   const deleteHabit = async (id) => {
     try {
-      await apiUtils.deleteHabit(id)
+      await Api.deleteHabit(id)
       await getHabit()
     } catch (error) {
       console.log(error)
@@ -20,7 +15,7 @@ const Habit = ({ getHabit, habits }) => {
     <div>
       {habits.map((habit) => {
         return (
-          <div>
+          <div key={habit._id} >
             <p>
               {habit.title} {habit.description}
             </p>

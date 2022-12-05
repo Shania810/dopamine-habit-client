@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react'
-// import apiUtils from '../utils/api.utils'
+import { useNavigate } from 'react-router-dom'
 import Api from '../utils/api.utils'
 import {
   Card,
@@ -30,15 +30,19 @@ const Challenge = (props) => {
   //       console.log(error)
   //     }
   //   }
-
-  //   const addChallengeToHabits = async (id) => {
-  //     try {
-  //       await chooseOneChallenge()
-  //       await apiUtils.challengeToHabit(id)
-  //     } catch (error) {
-  //       console.log(error)
-  //     }
-  //   }
+const sendToMyHabit = useNavigate()
+     const addChallengeToHabits = async (challenge,description) => {
+      const habit = {
+        title: challenge,
+        description
+      }
+    try {
+         await Api.addNewHabit(habit)
+         sendToMyHabit('/habit')
+      } catch (error) {
+       console.log(error)
+      }
+     }
 
   useEffect(() => {
     getChallenge()
@@ -64,9 +68,9 @@ const Challenge = (props) => {
                 {frequency_recommended}
               </ChallengeRec>
               <RealButton
-              // onClick={() => {
-              //   addChallengeToHabits(addChallengeToHabits)
-              // }}
+              onClick={() => {
+                addChallengeToHabits(challenge,description)
+              }}
               >
                 Turn this challenge into a habit!
               </RealButton>

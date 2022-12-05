@@ -68,6 +68,15 @@ class Api {
     }
   }
 
+  getUser = async () => {
+    try {
+      const {data} = await this.api.get('/user')
+      return data      
+    } catch (error) {
+      throw error
+    }
+  }
+
   addNewHabit = async (newHabit) => {
     try {
       const { data } = await this.api.post('/habit', newHabit)
@@ -80,6 +89,7 @@ class Api {
   deleteHabit = async (id) => {
     try {
       await this.api.delete(`/habit/${id}`)
+      this.getHabits()
     } catch (error) {
       throw error
     }

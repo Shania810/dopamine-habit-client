@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import apiUtils from '../utils/api.utils'
 import { RealButton } from './commons'
 
-export const NewHabit = ({ getHabit }) => {
+export const NewHabit = ({getHabit}) => {
   const [description, setDescription] = useState(' ')
   const [title, setTitle] = useState(' ')
 
