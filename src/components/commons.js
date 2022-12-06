@@ -104,6 +104,7 @@ export const SubTitle = styled.h1`
   margin: 20 80 20 20px;
   color: cornflowerblue;
   background-color: cornsilk;
+  width: 90%;
 `
 export const ChallengeTitle = styled.h2`
   font-family: verdana;
@@ -152,4 +153,43 @@ export const ImageProfile = styled.img`
   width:50px;
   height:50px;
   border-radius:50px;
+`
+export const FormHabit = styled.form`
+  background-color: bisque;
+  padding:20px;
+  width: 30%;
+  position: fixed;
+  bottom:0;
+  right:0;
+`
+export const HabitsCard = styled.div`
+ display:flex;
+ flex-wrap:wrap
+`
+export const HabitCard = styled.div`
+  border: 5px dotted royalblue;
+  border-radius: 26%;
+  margin: 30px 10px;
+  padding:8px;
+  width:45%;
+`
+export const HabitTitle = styled.h2`
+  color: darkblue;
+  font-family: verdana;
+  font-weight: normal;
+  font-size: 2.7em;
+`
+export const Habits = styled.div`
+  width: 90%;
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+  align-items:center;
+  flex-wrap:wrap;
+  margin-left: 5%;
+`
+export const User = styled.div`
+`
+export const UserCard = styled.div`
+  
 `

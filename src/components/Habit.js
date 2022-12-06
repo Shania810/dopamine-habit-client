@@ -1,5 +1,5 @@
 import React  from 'react'
-import { RealButton } from './commons'
+import { RealButton,HabitCard,HabitTitle, HabitsCard } from './commons'
 import Api from '../utils/api.utils'
 const Habit = ({habits,getHabit}) => {
   const deleteHabit = async (id) => {
@@ -12,13 +12,12 @@ const Habit = ({habits,getHabit}) => {
   }
 
   return (
-    <div>
+    <HabitsCard>
       {habits.map((habit) => {
         return (
-          <div key={habit._id} >
-            <p>
-              {habit.title} {habit.description}
-            </p>
+          <HabitCard key={habit._id} >
+            <HabitTitle>{habit.title[0].toUpperCase() + habit.title.slice(1,habit.title.length)}</HabitTitle>
+           {habit.description}
             <RealButton
               onClick={() => {
                 deleteHabit(habit._id)
@@ -26,10 +25,10 @@ const Habit = ({habits,getHabit}) => {
             >
               Delete
             </RealButton>
-          </div>
+          </HabitCard>
         )
       })}
-    </div>
+    </HabitsCard>
   )
 }
 

@@ -1,11 +1,12 @@
 import React, { useEffect, useState } from 'react'
 import Habit from '../components/Habit'
 import { NewHabit } from '../components/NewHabit'
-import { SubTitle } from '../components/commons'
+import { Habits, RealButton, SubTitle } from '../components/commons'
 import Api from '../utils/api.utils'
 import { UserProfile } from '../components/UserProfile'
 export const MyHabits = () => {
   const [habits, setHabits] = useState([])
+  const [value,setValue] = useState(false)
   const getHabit = async () => {
     try {
       const data = await Api.getHabits()
@@ -20,9 +21,12 @@ export const MyHabits = () => {
   return (
     <div>
     <UserProfile/>
+    <Habits>
       <SubTitle>My Habits</SubTitle>
-      <NewHabit getHabit={getHabit} />
       <Habit habits={habits} getHabit={getHabit} />
+      <RealButton onClick={()=> setValue(!value)} >+</RealButton>
+      {value && <NewHabit getHabit={getHabit} />}
+    </Habits>
     </div>
   )
 }

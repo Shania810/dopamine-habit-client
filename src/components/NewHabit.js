@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import apiUtils from '../utils/api.utils'
-import { RealButton } from './commons'
+import { FormHabit, RealButton } from './commons'
 
 export const NewHabit = ({getHabit}) => {
   const [description, setDescription] = useState(' ')
@@ -21,7 +21,7 @@ export const NewHabit = ({getHabit}) => {
   }
 
   return (
-    <form onSubmit={handleSubmit}>
+    <FormHabit onSubmit={handleSubmit}>
       <div>
         <label>Habit Title</label>
         <input
@@ -39,7 +39,7 @@ export const NewHabit = ({getHabit}) => {
           onChange={(e) => setDescription(e.target.value)}
         />
       </div>
-      <RealButton> Submit </RealButton>
-    </form>
+      <RealButton> Add Habit </RealButton>
+    </FormHabit>
   )
 }
