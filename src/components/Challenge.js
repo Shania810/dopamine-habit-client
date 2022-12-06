@@ -52,24 +52,20 @@ const sendToMyHabit = useNavigate()
     <div>
       <SubTitle> Challenges </SubTitle>
       {challenges.map(
-        ({
-          challenge,
-          description,
-          duration_of_challenge,
-          frequency_recommended,
-        }) => {
+        (
+          challenge) => {
           return (
-            <Card>
-              <ChallengeTitle>{challenge}</ChallengeTitle>
-              <ChallengeDescription>{description}</ChallengeDescription>
-              <ChallengeDuration>{duration_of_challenge}</ChallengeDuration>
+            <Card key={challenge._id} >
+              <ChallengeTitle>{challenge.challenge}</ChallengeTitle>
+              <ChallengeDescription>{challenge.description}</ChallengeDescription>
+              <ChallengeDuration>{challenge.duration_of_challenge}</ChallengeDuration>
               <ChallengeRec>
                 <ChallengeRecommendation>Recommended: </ChallengeRecommendation>
-                {frequency_recommended}
+                {challenge.frequency_recommended}
               </ChallengeRec>
               <RealButton
               onClick={() => {
-                addChallengeToHabits(challenge,description)
+                addChallengeToHabits(challenge.challenge,challenge.description)
               }}
               >
                 Turn this challenge into a habit!

@@ -111,6 +111,30 @@ class Api {
   //     throw error
   //   }
   // }
+  putUsername = async(username)=>{
+    try {
+      await this.api.put('/user/edit-username',username) 
+    } catch (error) {
+      throw error
+    }
+  }
+  putPassword = async(password)=>{
+    try {
+      await this.api.put('/user/edit-password',password)
+    } catch (error) {
+      throw error
+    }
+  }
+  uploadImage = async(file)=>{
+    const formData =  new FormData()
+    formData.append('image',file)
+    try {
+      const data = await this.api.put('/user/upload-image',formData)
+      return data   
+    } catch (error) {
+      throw error
+    }
+  }
 }
 
 export default new Api()
