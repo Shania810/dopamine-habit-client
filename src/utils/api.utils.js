@@ -105,7 +105,7 @@ class Api {
 
   addCompletedDay = async (habitId, days_completed) => {
     try {
-      await this.api.put(`/habit:${habitId}`)
+      await this.api.put(`/habit:${habitId}`, habitId.days_completed)
     } catch (error) {
       throw error
     }
