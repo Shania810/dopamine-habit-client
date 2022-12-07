@@ -7,6 +7,7 @@ export const NavBar = () => {
       <Anchor to="/"> Home </Anchor>
       <NavButton to="/habit"> My Habits </NavButton>
       <NavButton to="/challenge"> Challenges </NavButton>
+      <NavButton to="/analysis"> My Weekly Analysis </NavButton>
     </Nav>
   )
 }

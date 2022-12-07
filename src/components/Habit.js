@@ -46,7 +46,7 @@ const Habit = ({ habits, getHabit }) => {
                 DaysCompletedCounter(habit._id, habit.days_completed)
               }}
             >
-              +
+              I did this today!
             </RealButton>
           </HabitCard>
         )
