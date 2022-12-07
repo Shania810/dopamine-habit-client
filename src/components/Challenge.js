@@ -23,26 +23,20 @@ const Challenge = (props) => {
     }
   }
 
-  //   const chooseOneChallenge = async (id) => {
-  //     try {
-  //       await apiUtils.getOneChallenge(id)
-  //     } catch (error) {
-  //       console.log(error)
-  //     }
-  //   }
-const sendToMyHabit = useNavigate()
-     const addChallengeToHabits = async (challenge,description) => {
-      const habit = {
-        title: challenge,
-        description
-      }
+  const sendToMyHabit = useNavigate()
+  const addChallengeToHabits = async (challenge, description, frequency) => {
+    const habit = {
+      title: challenge,
+      description,
+      frequency,
+    }
     try {
-         await Api.addNewHabit(habit)
-         sendToMyHabit('/habit')
-      } catch (error) {
-       console.log(error)
-      }
-     }
+      await Api.addNewHabit(habit)
+      sendToMyHabit('/habit')
+    } catch (error) {
+      console.log(error)
+    }
+  }
 
   useEffect(() => {
     getChallenge()
@@ -51,29 +45,32 @@ const sendToMyHabit = useNavigate()
   return (
     <div>
       <SubTitle> Challenges </SubTitle>
-      {challenges.map(
-        (
-          challenge) => {
-          return (
-            <Card key={challenge._id} >
-              <ChallengeTitle>{challenge.challenge}</ChallengeTitle>
-              <ChallengeDescription>{challenge.description}</ChallengeDescription>
-              <ChallengeDuration>{challenge.duration_of_challenge}</ChallengeDuration>
-              <ChallengeRec>
-                <ChallengeRecommendation>Recommended: </ChallengeRecommendation>
-                {challenge.frequency_recommended}
-              </ChallengeRec>
-              <RealButton
+      {challenges.map((challenge) => {
+        return (
+          <Card key={challenge._id}>
+            <ChallengeTitle>{challenge.challenge}</ChallengeTitle>
+            <ChallengeDescription>{challenge.description}</ChallengeDescription>
+            <ChallengeDuration>
+              {challenge.duration_of_challenge}
+            </ChallengeDuration>
+            <ChallengeRec>
+              <ChallengeRecommendation>Recommended: </ChallengeRecommendation>
+              {challenge.frequency_recommended}
+            </ChallengeRec>
+            <RealButton
               onClick={() => {
-                addChallengeToHabits(challenge.challenge,challenge.description)
+                addChallengeToHabits(
+                  challenge.challenge,
+                  challenge.description,
+                  challenge.frequency_recommended
+                )
               }}
-              >
-                Turn this challenge into a habit!
-              </RealButton>
-            </Card>
-          )
-        }
-      )}
+            >
+              Turn this challenge into a habit!
+            </RealButton>
+          </Card>
+        )
+      })}
     </div>
   )
 }

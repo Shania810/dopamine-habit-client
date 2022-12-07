@@ -70,8 +70,8 @@ class Api {
 
   getUser = async () => {
     try {
-      const {data} = await this.api.get('/user')
-      return data      
+      const { data } = await this.api.get('/user')
+      return data
     } catch (error) {
       throw error
     }
@@ -95,42 +95,44 @@ class Api {
     }
   }
 
-  // getOneChallenge = async (id) => {
-  //   try {
-  //     const { data } = await this.api.get(`/challenge/${id}`)
-  //     return data
-  //   } catch (error) {
-  //     throw error
-  //   }
-  // }
+  getAnalysis = async () => {
+    try {
+      await this.api.get('/analysis')
+    } catch (error) {
+      throw error
+    }
+  }
 
-  // challengeToHabit = async (newHabit) => {
-  //   try {
-  //     await this.api.post('/habit', newHabit)
-  //   } catch (error) {
-  //     throw error
-  //   }
-  // }
-  putUsername = async(username)=>{
+  addCompletedDay = async (habitId, days_completed) => {
     try {
-      await this.api.put('/user/edit-username',username) 
+      await this.api.put(`/habit:${habitId}`)
     } catch (error) {
       throw error
     }
   }
-  putPassword = async(password)=>{
+
+  putUsername = async (username) => {
     try {
-      await this.api.put('/user/edit-password',password)
+      await this.api.put('/user/edit-username', username)
     } catch (error) {
       throw error
     }
   }
-  uploadImage = async(file)=>{
-    const formData =  new FormData()
-    formData.append('image',file)
+
+  putPassword = async (password) => {
     try {
-      const data = await this.api.put('/user/upload-image',formData)
-      return data   
+      await this.api.put('/user/edit-password', password)
+    } catch (error) {
+      throw error
+    }
+  }
+
+  uploadImage = async (file) => {
+    const formData = new FormData()
+    formData.append('image', file)
+    try {
+      const data = await this.api.put('/user/upload-image', formData)
+      return data
     } catch (error) {
       throw error
     }
