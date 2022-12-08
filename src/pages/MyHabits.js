@@ -21,11 +21,13 @@ export const MyHabits = () => {
   const addAnalysis = async()=>{
     try {
         await Api.postAnalysis()
-        await Api.putAnalysisHabits(habits)
+        const data = await Api.putAnalysisHabits(habits)
+        console.log(data)
     } catch (error) {
       throw error
     }
   }
+  console.log(habits)
   return(
     <PositionContainer>
       <UserProfile />

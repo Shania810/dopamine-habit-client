@@ -144,7 +144,8 @@ class Api {
   }
   putAnalysisHabits = async(habits)=>{
     try {
-      await this.Api.put('/analysis/habits',habits)
+     const {data} = await this.Api.put('/analysis/habits',habits)
+     return data
     } catch (error) {
       throw error
     }
