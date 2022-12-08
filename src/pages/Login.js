@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import Api from '../utils/api.utils'
+import {PositionContainer} from '../components/commons'
 
 const Login = () => {
   const [username, setUsername] = useState('')
@@ -26,7 +27,7 @@ const Login = () => {
   }
 
   return (
-    <div>
+    <PositionContainer>
       <form
         onSubmit={(e) => {
           handleSubmit(e)
@@ -52,7 +53,7 @@ const Login = () => {
         <button>Submit</button>
       </form>
       {error === 'User not found' ? userNotFound('/signup') : <p>{error}</p>}
-    </div>
+    </PositionContainer>
   )
 }
 

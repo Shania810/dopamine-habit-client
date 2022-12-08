@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import Api from '../utils/api.utils'
+import { ImageProfile } from './commons'
 import { UploadImageForm } from './UploadImageForm'
 
 export const User = () => {
@@ -59,12 +60,12 @@ export const User = () => {
     }
   return (
     <div>
+      <ImageProfile src={user.imageURL} alt={user.imageURL} />
      <UploadImageForm
           imageURL={imageURL}
           handleChangeImg={handleChangeImg}
         />
-        <button onClick={uploadImage}>Update photo</button>
-      <img src={user.imageURL} alt={user.imageURL} />
+      <button onClick={uploadImage}>Update photo</button>
       <h1>Hi</h1>
       <h2>Username: {user.username}</h2>
       <input type="text" value={username} onChange={(e)=> setUsername(e.target.value)} />

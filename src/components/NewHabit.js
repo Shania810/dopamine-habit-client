@@ -12,6 +12,7 @@ export const NewHabit = ({getHabit}) => {
     const addNewHabit = {
       title,
       description,
+      frequency:'uma vez por dia'
     }
 
     await apiUtils.addNewHabit(addNewHabit)

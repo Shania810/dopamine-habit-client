@@ -7,6 +7,7 @@ import { NavBar } from './components/NavBar.js'
 import { Home } from './pages/Home'
 import { MyHabits } from './pages/MyHabits'
 import { User } from './components/User'
+import { MyWeeklyAnalysis } from './pages/MyWeeklyAnalysis'
 
 function App() {
   return (
@@ -19,6 +20,7 @@ function App() {
         <Route path="/habit" element=<MyHabits /> />
         <Route path="/user" element=<User/> />
         <Route path="/challenge" element=<Challenge /> />
+        <Route path="/analysis" element=<MyWeeklyAnalysis/> />
       </Routes>
     </div>
   )

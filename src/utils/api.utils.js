@@ -85,7 +85,20 @@ class Api {
       throw error
     }
   }
-
+  addCompletedDay = async (habitId, days_completed) => {
+    try {
+      await this.api.put(`/habit/${habitId}`,days_completed)
+    } catch (error) {
+      throw error
+    }
+  }
+  postAnalysis = async (habitId)=>{
+    try {
+      await this.api.post('/analysis',habitId)
+    } catch (error) {
+      throw error
+    }
+  }
   deleteHabit = async (id) => {
     try {
       await this.api.delete(`/habit/${id}`)
@@ -97,20 +110,12 @@ class Api {
 
   getAnalysis = async () => {
     try {
-      await this.api.get('/analysis')
+      const {data} = await this.api.get('/analysis')
+      return data
     } catch (error) {
       throw error
     }
   }
-
-  addCompletedDay = async (habitId, days_completed) => {
-    try {
-      await this.api.put(`/habit:${habitId}`, habitId.days_completed)
-    } catch (error) {
-      throw error
-    }
-  }
-
   putUsername = async (username) => {
     try {
       await this.api.put('/user/edit-username', username)
@@ -133,6 +138,13 @@ class Api {
     try {
       const data = await this.api.put('/user/upload-image', formData)
       return data
+    } catch (error) {
+      throw error
+    }
+  }
+  putAnalysisHabits = async(habits)=>{
+    try {
+      await this.Api.put('/analysis/habits',habits)
     } catch (error) {
       throw error
     }

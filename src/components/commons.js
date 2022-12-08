@@ -4,10 +4,13 @@ import styled from 'styled-components'
 export const Nav = styled.nav`
   background-color: bisque;
   float: left;
+  left:0;
+  top:0;
+  position:fixed;
   display: flex;
   flex-direction: column;
   align-items: center;
-  height: 800px;
+  height: 100vh;
   width: 140px;
   margin: 2px;
 `
@@ -91,27 +94,22 @@ export const RealButton = styled.button`
   border-radius: 12%;
 `
 export const SubTitle = styled.h1`
-  display: flex;
-  flex-direction: row;
   font-family: optima;
   font-weight: light;
   font-size: 2.7em;
-  justify-content: center;
-  align-items: right;
   border: 3px solid midnightblue;
   border-radius: 26%;
   padding: 40px;
-  margin: 20 80 20 20px;
   color: cornflowerblue;
   background-color: cornsilk;
-  width: 90%;
+  width:80%;
 `
 export const ChallengeTitle = styled.h2`
   font-family: verdana;
   font-weight: normal;
   font-size: 1.8em;
-  justify-content: left;
-  align-items: right;
+  justify-content: center;
+  align-items: center;
   padding: 5px;
   color: darkblue;
 `
@@ -164,14 +162,17 @@ export const FormHabit = styled.form`
 `
 export const HabitsCard = styled.div`
  display:flex;
- flex-wrap:wrap
+ flex-wrap:wrap;
+ align-items:center;
+ justify-content:center;
+  padding: 5px 50px;
+  width: 90%
 `
 export const HabitCard = styled.div`
   border: 5px dotted royalblue;
   border-radius: 26%;
-  margin: 30px 10px;
-  padding:8px;
-  width:45%;
+  margin: 30px;
+  width:40%;
 `
 export const HabitTitle = styled.h2`
   color: darkblue;
@@ -182,14 +183,32 @@ export const HabitTitle = styled.h2`
 export const Habits = styled.div`
   width: 90%;
   display:flex;
-  flex-direction:column;
-  justify-content:center;
-  align-items:center;
   flex-wrap:wrap;
-  margin-left: 5%;
+  margin-right: 300px;
+  border: 1px solid black;
+  padding: 50px;
 `
 export const User = styled.div`
 `
 export const UserCard = styled.div`
   
+`
+export const LoadingCard = styled.div`
+display: flex;
+align-items:center;
+justify-content:center;
+height: 100vh;
+width:100%;
+`
+export const PositionContainer = styled.div`
+position: absolute;
+right:0;
+width:90%;
+display:flex;
+align-items:center;
+justify-content:center;
+flex-direction:column;
+`
+export const ImageLogo = styled.img`
+width: 90%
 `

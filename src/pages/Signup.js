@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
-import { SignupForm, SignupInput } from '../components/commons'
+import { PositionContainer, SignupForm, SignupInput } from '../components/commons'
 import Api from '../utils/api.utils'
 
 const Signup = () => {
@@ -28,7 +28,7 @@ const Signup = () => {
   }
 
   return (
-    <div>
+    <PositionContainer>
       <SignupForm
         onSubmit={(e) => {
           handleSubmit(e)
@@ -63,7 +63,7 @@ const Signup = () => {
         <button>Submit</button>
       </SignupForm>
       {error && <p> {error} </p>}
-    </div>
+    </PositionContainer>
   )
 }
 

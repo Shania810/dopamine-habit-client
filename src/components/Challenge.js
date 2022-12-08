@@ -8,6 +8,7 @@ import {
   ChallengeRec,
   ChallengeRecommendation,
   ChallengeTitle,
+  PositionContainer,
   RealButton,
   SubTitle,
 } from './commons'
@@ -43,8 +44,8 @@ const Challenge = (props) => {
   }, [])
 
   return (
-    <div>
-      <SubTitle> Challenges </SubTitle>
+    <PositionContainer>
+      <SubTitle>Challenges</SubTitle>
       {challenges.map((challenge) => {
         return (
           <Card key={challenge._id}>
@@ -71,7 +72,7 @@ const Challenge = (props) => {
           </Card>
         )
       })}
-    </div>
+    </PositionContainer>
   )
 }
 
