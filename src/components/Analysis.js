@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import Api from '../utils/api.utils'
-import { SubTitle, RealButton } from './commons'
+import { SubTitle } from './commons'
 
 const Analysis = (props) => {
   const [analysis, setAnalysis] = useState({})
