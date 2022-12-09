@@ -1,5 +1,6 @@
 import React from 'react'
 import { Chart,CategoryScale,LinearScale,BarElement,Title,Tooltip,Legend } from 'chart.js'
+import {faker} from "@faker-js/faker";
 import { Bar } from 'react-chartjs-2'
 export const BarChart = ({charData}) => {
   Chart.register(
@@ -10,11 +11,17 @@ export const BarChart = ({charData}) => {
     Tooltip,
     Legend
   )
+  const labels = charData.map((habitAnalysis) => habitAnalysis.title )
+  
  const data = {
-    labels: charData.map((habitAnalysis) => habitAnalysis.title ),
-    datasets:charData.map((habitAnalysis)=>{ return{label: habitAnalysis.title,data:[habitAnalysis.days_completed],backgroundColor:'rgba(255, 99, 132, 0.5)'}})
-}
-console.log(data)
+    labels,
+    datasets:[ {
+      label: 'completed days',
+      data: labels.map(() => faker.datatype.number({ min: 1, max: 7 })),
+      backgroundColor: 'rgba(255, 99, 132, 0.5)'
+    }
+  ]
+ }
  const options = {
     responsive:true,
     plugins:{
