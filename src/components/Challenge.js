@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import Api from '../utils/api.utils'
+import {Loading} from '../components/Loading'
 import {
   Card,
   ChallengeDescription,
@@ -43,7 +44,7 @@ const Challenge = (props) => {
     getChallenge()
   }, [])
 
-  return (
+  return challenges.length === 0 ? <Loading/>  :
     <PositionContainer>
       <SubTitle>Challenges</SubTitle>
       {challenges.map((challenge) => {
@@ -73,7 +74,6 @@ const Challenge = (props) => {
         )
       })}
     </PositionContainer>
-  )
 }
 
 export default Challenge
