@@ -21,7 +21,7 @@ export const UserProfile = () => {
       <div>
         <ImageProfile src={user.imageURL} alt={user.imageURL} />
         <p>
-          <b>Hi,{user.username}</b>
+          <b>Hi, {user.username}</b>
         </p>
       </div>
     </UserCard>
