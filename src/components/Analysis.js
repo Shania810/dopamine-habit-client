@@ -9,7 +9,7 @@ const Analysis = () => {
   const [habitAnalysis,setHabitAnalysis] = useState([])
   const now = new Date()
   const dateConclusion = new Date(analysis[0]?.createdAt)
-  dateConclusion.setDate(dateConclusion.getDate() + 1)
+  dateConclusion.setDate(dateConclusion.getDate())
   const runAnalysis = async () => {
     try {
       const data = await Api.getAnalysis()
