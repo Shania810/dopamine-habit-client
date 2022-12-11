@@ -1,29 +1,29 @@
 import { Link } from 'react-router-dom'
 import styled from 'styled-components'
 
-export const Nav = styled.nav`
-  background-color: bisque;
-  float: left;
-  left:0;
-  top:0;
-  position:fixed;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  height: 100vh;
-  width: 140px;
-  margin: 2px;
-`
-export const NavButton = styled(Link)`
-  text-decoration: none;
-  font-family: optima;
-  border: 0.5px solid midnightblue;
-  padding: 12px;
-  margin: 13px;
-  border-radius: 15%;
-  color: cornflowerblue;
-  background-color: cornsilk;
-`
+// export const Nav = styled.nav`
+//   background-color: bisque;
+//   float: left;
+//   left:0;
+//   top:0;
+//   position:fixed;
+//   display: flex;
+//   flex-direction: column;
+//   align-items: center;
+//   height: 100vh;
+//   width: 140px;
+//   margin: 2px;
+// `
+// export const NavButton = styled(Link)`
+//   text-decoration: none;
+//   font-family: optima;
+//   border: 0.5px solid midnightblue;
+//   padding: 12px;
+//   margin: 13px;
+//   border-radius: 15%;
+//   color: cornflowerblue;
+//   background-color: cornsilk;
+// `
 export const Anchor = styled(Link)`
   text-decoration: none;
   padding: 6px;
@@ -56,21 +56,21 @@ export const Title = styled.h1`
   color: midnightblue;
   background-color: blanchealmond;
 `
-export const SignupForm = styled.form`
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-`
-export const SignupInput = styled.input`
-  height: 30px;
-  width: 250px;
-  border: 2px solid midnightblue;
-  border-radius: 10%;
-  background-color: blanchealmond;
-  padding: 5px;
-  margin: 10px;
-  color: ${(props) => props.type || 'cornflowerblue'};
-`
+// export const SignupForm = styled.form`
+//   display: flex;
+//   flex-direction: column;
+//   align-items: center;
+// `
+// export const SignupInput = styled.input`
+//   height: 30px;
+//   width: 250px;
+//   border: 2px solid midnightblue;
+//   border-radius: 10%;
+//   background-color: blanchealmond;
+//   padding: 5px;
+//   margin: 10px;
+//   color: ${(props) => props.type || 'cornflowerblue'};
+// `
 
 export const Card = styled.div`
   display: flex;
@@ -102,7 +102,7 @@ export const SubTitle = styled.h1`
   padding: 40px;
   color: cornflowerblue;
   background-color: cornsilk;
-  width:80%;
+  width: 80%;
 `
 export const ChallengeTitle = styled.h2`
   font-family: verdana;
@@ -148,31 +148,31 @@ export const ChallengeRec = styled.p`
   color: sandybrown;
 `
 export const ImageProfile = styled.img`
-  width:50px;
-  height:50px;
-  border-radius:50px;
+  width: 50px;
+  height: 50px;
+  border-radius: 50px;
 `
 export const FormHabit = styled.form`
   background-color: bisque;
-  padding:20px;
+  padding: 20px;
   width: 30%;
   position: fixed;
-  bottom:0;
-  right:0;
+  bottom: 0;
+  right: 0;
 `
 export const HabitsCard = styled.div`
- display:flex;
- flex-wrap:wrap;
- align-items:center;
- justify-content:center;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
   padding: 5px 50px;
-  width: 90%
+  width: 90%;
 `
 export const HabitCard = styled.div`
   border: 5px dotted royalblue;
   border-radius: 26%;
   margin: 30px;
-  width:40%;
+  width: 40%;
 `
 export const HabitTitle = styled.h2`
   color: darkblue;
@@ -182,33 +182,30 @@ export const HabitTitle = styled.h2`
 `
 export const Habits = styled.div`
   width: 90%;
-  display:flex;
-  flex-wrap:wrap;
+  display: flex;
+  flex-wrap: wrap;
   margin-right: 300px;
   border: 1px solid black;
   padding: 50px;
 `
-export const User = styled.div`
-`
-export const UserCard = styled.div`
-  
-`
+export const User = styled.div``
+export const UserCard = styled.div``
 export const LoadingCard = styled.div`
-display: flex;
-align-items:center;
-justify-content:center;
-height: 100vh;
-width:100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  width: 100%;
 `
 export const PositionContainer = styled.div`
-position: absolute;
-right:0;
-width:90%;
-display:flex;
-align-items:center;
-justify-content:center;
-flex-direction:column;
+  position: absolute;
+  right: 0;
+  width: 90%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
 `
 export const ImageLogo = styled.img`
-width: 90%
+  width: 90%;
 `

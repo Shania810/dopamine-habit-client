@@ -1,7 +1,11 @@
 import React, { useState } from 'react'
-import { useNavigate } from 'react-router-dom'
-import { PositionContainer, SignupForm, SignupInput } from '../components/commons'
+import { useNavigate, Link } from 'react-router-dom'
+import Button from '../components/Button'
+import EntryCard from '../components/EntryCard'
+import Input from '../components/Input'
+import InputGroup from '../components/InputGroup'
 import Api from '../utils/api.utils'
+import { EntryPage, PageHeader } from './style'
 
 const Signup = () => {
   const [username, setUsername] = useState('')
@@ -28,42 +32,56 @@ const Signup = () => {
   }
 
   return (
-    <PositionContainer>
-      <SignupForm
-        onSubmit={(e) => {
-          handleSubmit(e)
-        }}
-      >
-        <label>username</label>
-        <SignupInput
-          type="text"
-          value={username}
-          onChange={(e) => {
-            setUsername(e.target.value)
+    <EntryPage>
+      <PageHeader to="/"> LOGO </PageHeader>
+      <EntryCard>
+        <h2> Sign Up </h2>
+        <form
+          onSubmit={(e) => {
+            handleSubmit(e)
           }}
-        />
-
-        <label>email</label>
-        <input
-          type="text"
-          value={email}
-          onChange={(e) => {
-            setEmail(e.target.value)
-          }}
-        />
-
-        <label>password</label>
-        <input
-          type="password"
-          value={password}
-          onChange={(e) => {
-            setPassword(e.target.value)
-          }}
-        />
-        <button>Submit</button>
-      </SignupForm>
-      {error && <p> {error} </p>}
-    </PositionContainer>
+        >
+          <InputGroup>
+            <label htmlFor="signup-username"> username </label>
+            <Input
+              type="text"
+              value={username}
+              onChange={(e) => {
+                setUsername(e.target.value)
+              }}
+            />
+          </InputGroup>
+          <InputGroup>
+            <label>email</label>
+            <Input
+              type="text"
+              value={email}
+              onChange={(e) => {
+                setEmail(e.target.value)
+              }}
+            />
+          </InputGroup>
+          <InputGroup>
+            <label>password</label>
+            <Input
+              type="password"
+              value={password}
+              onChange={(e) => {
+                setPassword(e.target.value)
+              }}
+            />
+          </InputGroup>
+          <Button type="submit" full>
+            Sign Up
+          </Button>
+        </form>
+        <span>
+          Already have an account?
+          <Link to="/login"> Log In </Link>
+          {error && <p> {error} </p>}
+        </span>
+      </EntryCard>
+    </EntryPage>
   )
 }
 

@@ -1,7 +1,12 @@
 import React, { useState } from 'react'
-import { useNavigate } from 'react-router-dom'
+import { useNavigate, Link } from 'react-router-dom'
+import EntryCard from '../components/EntryCard'
+import InputGroup from '../components/InputGroup'
 import Api from '../utils/api.utils'
-import {PositionContainer} from '../components/commons'
+import { EntryPage, PageHeader } from './style'
+import Button from '../components/Button'
+
+// import {PositionContainer} from '../components/commons'
 
 const Login = () => {
   const [username, setUsername] = useState('')
@@ -27,33 +32,50 @@ const Login = () => {
   }
 
   return (
-    <PositionContainer>
-      <form
-        onSubmit={(e) => {
-          handleSubmit(e)
-        }}
-      >
-        <label>username</label>
-        <input
-          type="text"
-          value={username}
-          onChange={(e) => {
-            setUsername(e.target.value)
+    <EntryPage>
+      <PageHeader to="/"> LOGO </PageHeader>
+      <EntryCard>
+        <h2> Log In </h2>
+        <form
+          onSubmit={(e) => {
+            handleSubmit(e)
           }}
-        />
-
-        <label>password</label>
-        <input
-          type="password"
-          value={password}
-          onChange={(e) => {
-            setPassword(e.target.value)
-          }}
-        />
-        <button>Submit</button>
-      </form>
-      {error === 'User not found' ? userNotFound('/signup') : <p>{error}</p>}
-    </PositionContainer>
+        >
+          <InputGroup>
+            <label>username</label>
+            <input
+              type="text"
+              value={username}
+              onChange={(e) => {
+                setUsername(e.target.value)
+              }}
+            />
+          </InputGroup>
+          <InputGroup>
+            <label>password</label>
+            <input
+              type="password"
+              value={password}
+              onChange={(e) => {
+                setPassword(e.target.value)
+              }}
+            />
+          </InputGroup>
+          <Button type="submit" full>
+            Log In
+          </Button>
+        </form>
+        <span>
+          Don't have an account yet?
+          <Link to="/signup"> Sign Up</Link>
+          {error === 'User not found' ? (
+            userNotFound('/signup')
+          ) : (
+            <p>{error}</p>
+          )}
+        </span>
+      </EntryCard>
+    </EntryPage>
   )
 }
 
