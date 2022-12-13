@@ -28,7 +28,7 @@ export const MyHabits = () => {
   useEffect(() => {
     getHabit()
     runAnalysis()
-  }, [])
+  })
 
   const addAnalysis = async () => {
     try {
@@ -43,6 +43,7 @@ export const MyHabits = () => {
   const runAnalysis = async () => {
     try {
       const data = await Api.getAnalysis()
+      analysis()
       setAnalysis(data)
     } catch (error) {
       console.log(error)

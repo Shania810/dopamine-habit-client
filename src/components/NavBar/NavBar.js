@@ -18,7 +18,6 @@ const NavBar = ({ children }) => {
   return (
     <StyledNavBar>
       <Anchor to="/">
-        {' '}
         Home
         {/* <ImageLogo src={imageLogo} /> */}
       </Anchor>
