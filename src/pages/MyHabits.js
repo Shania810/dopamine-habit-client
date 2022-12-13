@@ -10,6 +10,7 @@ import {
 } from '../components/commons'
 import Api from '../utils/api.utils'
 import { UserProfile } from '../components/UserProfile'
+import { DailyHabit } from '../components/DailyHabit'
 
 export const MyHabits = () => {
   const [habits, setHabits] = useState([])
@@ -49,10 +50,7 @@ export const MyHabits = () => {
       console.log(error)
     }
   }
-
-  return habits.length === 0 ? (
-    <Loading />
-  ) : (
+  return (
     <PositionContainer>
       <UserProfile />
       <SubTitle>My Habits</SubTitle>
@@ -66,6 +64,7 @@ export const MyHabits = () => {
       <Habit habits={habits} getHabit={getHabit} />
       <RealButton onClick={() => setValue(!value)}>+</RealButton>
       {value && <NewHabit getHabit={getHabit} />}
+      <DailyHabit habits={habits}/>
     </PositionContainer>
   )
 }

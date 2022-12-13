@@ -33,7 +33,6 @@ const Habit = ({ habits, getHabit }) => {
             </HabitTitle>
             {habit.description}
             <p>frequency:{habit.frequency} </p>
-            <p>{habit.days_completed}/7 days</p>
             <RealButton
               onClick={() => {
                 deleteHabit(habit._id)

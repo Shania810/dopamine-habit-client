@@ -8,7 +8,6 @@ import {
   Tooltip,
   Legend,
 } from 'chart.js'
-// import { faker } from '@faker-js/faker'
 import { Bar } from 'react-chartjs-2'
 
 export const BarChart = ({ charData }) => {
@@ -18,18 +17,12 @@ export const BarChart = ({ charData }) => {
   const daysCompleted = charData.map(
     (habitAnalysis) => habitAnalysis.days_completed
   )
-
-  console.log(daysCompleted)
-
   const data = {
     labels,
     datasets: [
       {
         label: 'completed days',
         data: daysCompleted,
-        // (() =>
-        //   // faker.datatype.number({ min: 1, max: 8 })
-        // ),
         backgroundColor: 'rgba(255, 99, 132, 0.5)',
       },
     ],
