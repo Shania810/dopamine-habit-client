@@ -7,10 +7,12 @@ import { Home } from './pages/Home'
 import { MyHabits } from './pages/MyHabits'
 import { User } from './components/User'
 import { MyWeeklyAnalysis } from './pages/MyWeeklyAnalysis'
+import NavBar from './components/NavBar'
 
 function App() {
   return (
     <div className="App">
+      <NavBar />
       <Routes>
         <Route path="/" element=<Home /> />
         <Route path="/signup" element=<Signup /> />

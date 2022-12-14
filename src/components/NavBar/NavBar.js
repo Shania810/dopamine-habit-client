@@ -17,16 +17,15 @@ import { StyledNavBar, NavItemLink } from './style'
 const NavBar = ({ children }) => {
   return (
     <StyledNavBar>
-      <Anchor to="/">
-        Home
-        {/* <ImageLogo src={imageLogo} /> */}
-      </Anchor>
-      <NavItemLink to="/login"> Log In </NavItemLink>
+      <Anchor to="/">{/* <ImageLogo src={imageLogo} /> */}</Anchor>
+      <NavItemLink to="/login" fill>
+        Log In
+      </NavItemLink>
       <NavItemLink to="/signup" fill>
         Sign Up
       </NavItemLink>
       <NavItemLink to="/habit"> My Habits </NavItemLink>
-      <NavItemLink to="/challenge"> Challenges </NavItemLink>
+      <NavItemLink to="/challenge">Challenges</NavItemLink>
       <NavItemLink to="/analysis"> My Weekly Analysis </NavItemLink>
     </StyledNavBar>
   )

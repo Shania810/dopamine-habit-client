@@ -15,3 +15,9 @@ export const PageHeader = styled(Link)`
   margin: 40px 0;
   color: inherit;
 `
+export const PageHeader1 = styled(Link)`
+  font-size: 1rem;
+  font-weight: 300;
+  margin: 40px 0;
+  color: inherit;
+`

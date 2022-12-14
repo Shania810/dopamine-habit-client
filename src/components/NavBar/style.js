@@ -16,6 +16,7 @@ export const StyledNavBar = styled.nav`
 export const NavItemLink = styled(Link)`
   color: inherit;
   margin-left: 16px;
+  padding-bottom: 6px;
   ${(props) =>
     props.fill &&
     css`
