@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import Habit from '../components/Habit'
 import { NewHabit } from '../components/NewHabit'
-import { Loading } from '../components/Loading'
 import {
   Button,
   PositionContainer,
@@ -64,7 +63,7 @@ export const MyHabits = () => {
       <Habit habits={habits} getHabit={getHabit} />
       <RealButton onClick={() => setValue(!value)}>+</RealButton>
       {value && <NewHabit getHabit={getHabit} />}
-      <DailyHabit habits={habits}/>
+      <DailyHabit habits={habits} />
     </PositionContainer>
   )
 }
