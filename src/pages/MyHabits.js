@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import Habit from '../components/Habit'
 import { NewHabit } from '../components/NewHabit'
+import { Loading } from '../components/Loading'
 import {
   ButtonDefault,
   PositionContainer,
@@ -90,7 +91,7 @@ export const MyHabits = () => {
    const show = showDaily()
     setShowComponentDaily(show)
   },[])
-  return (
+  return analyses && habits ?
     <PositionContainer style={{margin: '50px 0'}} >
       <SubTitle style={{width: 400}} >My Goals</SubTitle>
       {showButtonAddDeleteHabitAndAddAnalysis()? <ButtonDefault onClick={addAnalysis}>
@@ -102,6 +103,6 @@ export const MyHabits = () => {
       {showButtonAddDeleteHabitAndAddAnalysis() === true && <ButtonDefault onClick={() => setValue(!value)}>Add Goal</ButtonDefault>}
       {value && <NewHabit getHabit={getHabit} />}
       {showComponentDaily === true && <DailyHabit habits={habits} getHabit={getHabit} updateAnalysis={updateAnalysis}/>}
-    </PositionContainer>
-  )
+    </PositionContainer> : <Loading/>
+   
 }
