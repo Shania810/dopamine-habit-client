@@ -21,8 +21,12 @@ const Analysis = () => {
   }, []);
   return (
     <PositionContainer>
-      <SubTitle style={{width: 500}} >My Analysis </SubTitle>
-      {(analysis?.habits && analysis)?<BarChart charData={analysis.habits} />: <h1>Please let us analyze you to see the chart</h1>}
+      <SubTitle style={{ width: 500 }}>My Analysis </SubTitle>
+      {analysis?.habits && analysis ? (
+        <BarChart charData={analysis.habits} />
+      ) : (
+        <h1>Please let us analyze you to see the chart</h1>
+      )}
     </PositionContainer>
   );
 };

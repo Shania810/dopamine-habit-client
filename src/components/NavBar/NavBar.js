@@ -1,7 +1,7 @@
-import React from 'react'
-import { Anchor } from '../commons'
+import React from "react";
+import { Anchor } from "../commons";
 // import imageLogo from '../images/dopamine.png'
-import { StyledNavBar, NavItemLink } from './style'
+import { StyledNavBar, NavItemLink } from "./style";
 
 // export const NavBar = () => {
 //   return (
@@ -28,7 +28,7 @@ const NavBar = ({ children }) => {
       <NavItemLink to="/challenge">Challenges</NavItemLink>
       <NavItemLink to="/analysis"> My Weekly Analysis </NavItemLink>
     </StyledNavBar>
-  )
-}
+  );
+};
 
-export default NavBar
+export default NavBar;

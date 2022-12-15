@@ -1,5 +1,5 @@
-import { Link } from 'react-router-dom'
-import styled from 'styled-components'
+import { Link } from "react-router-dom";
+import styled from "styled-components";
 
 // export const Nav = styled.nav`
 //   background-color: bisque;
@@ -29,7 +29,7 @@ export const Anchor = styled(Link)`
   padding: 6px;
   margin-top: 11px;
   color: #0072ff;
-`
+`;
 export const Button = styled(Link)`
   text-decoration: none;
   font-size: 1em;
@@ -40,17 +40,17 @@ export const Button = styled(Link)`
   padding: 0.25em 1em;
   border: 2px solid royalblue;
   border-radius: 12%;
-`
+`;
 export const ButtonFinish = styled.button`
-background-color: green;
-width: 200px;
-height: 50px;
-border: solid green;
-border-radius: 50px;
-color:white;
-font-family: cursive;
-font-size: 20px;
-`
+  background-color: green;
+  width: 200px;
+  height: 50px;
+  border: solid green;
+  border-radius: 50px;
+  color: white;
+  font-family: cursive;
+  font-size: 20px;
+`;
 export const Title = styled.h1`
   display: flex;
   flex-direction: row;
@@ -68,7 +68,7 @@ export const Title = styled.h1`
   box-shadow: 0 0 0 2px rgb(169, 172, 255, 0.5);
   margin-top: 30px;
   letter-spacing: 3.5px;
-`
+`;
 // export const SignupForm = styled.form`
 //   display: flex;
 //   flex-direction: column;
@@ -94,7 +94,7 @@ export const Card = styled.div`
   padding: 18px;
   margin: 13px;
   width: 80%;
-`
+`;
 export const RealButton = styled.button`
   text-decoration: none;
   font-size: 1em;
@@ -105,7 +105,7 @@ export const RealButton = styled.button`
   padding: 0.25em 1em;
   border: 1px solid black;
   border-radius: 12%;
-`
+`;
 export const SubTitle = styled.h1`
   font-family: optima;
   font-weight: light;
@@ -116,7 +116,7 @@ export const SubTitle = styled.h1`
   color: cornflowerblue;
   background-color: cornsilk;
   width: 80%;
-`
+`;
 /*export const SubTitle = styled.h1`
   font-size: 60px;
   border: 3px solid black;
@@ -136,7 +136,7 @@ export const ChallengeTitle = styled.h2`
   align-items: center;
   padding: 5px;
   color: #0072ff;
-`
+`;
 export const ChallengeDescription = styled.p`
   font-family: verdana;
   font-weight: light;
@@ -146,7 +146,7 @@ export const ChallengeDescription = styled.p`
   justtify-content: center;
   align-items: center;
   color: lightsteelblue;
-`
+`;
 export const ChallengeDuration = styled.b`
   font-family: optima;
   font-size: 1em;
@@ -154,7 +154,7 @@ export const ChallengeDuration = styled.b`
   margin: 8px;
   justify-content: center;
   color: #0072ff;
-`
+`;
 export const ChallengeRecommendation = styled.b`
   font-family: verdana;
   font-size: 1.2em;
@@ -162,7 +162,7 @@ export const ChallengeRecommendation = styled.b`
   margin: 1px;
   justify-content: center;
   color: gray;
-`
+`;
 export const ChallengeRec = styled.p`
   font-family: verdana;
   font-size: 1em;
@@ -170,12 +170,12 @@ export const ChallengeRec = styled.p`
   margin: 1px;
   justify-content: center;
   color: lightgray;
-`
+`;
 export const ImageProfile = styled.img`
   width: 50px;
   height: 50px;
   border-radius: 50px;
-`
+`;
 export const FormHabit = styled.form`
   background-color: black;
   padding: 20px;
@@ -184,37 +184,37 @@ export const FormHabit = styled.form`
   bottom: 0;
   right: 0;
   border-radius: 50px;
-`
+`;
 export const Label = styled.label`
-color: white;
-font-size: 20px;
-`
+  color: white;
+  font-size: 20px;
+`;
 export const Input = styled.input`
-width: 250px;
-height: 30px;
-border-radius: 50px;
-margin: 10px;
-font-size: cursive;
-`
+  width: 250px;
+  height: 30px;
+  border-radius: 50px;
+  margin: 10px;
+  font-size: cursive;
+`;
 export const HabitsCard = styled.div`
   display: flex;
   flex-wrap: wrap;
   margin: 40px;
   width: 100%;
-`
+`;
 export const HabitCard = styled.div`
-  display:flex;
-  flex-direction:column;
+  display: flex;
+  flex-direction: column;
   width: 300px;
   height: 200px;
-  padding:50px 20px;
+  padding: 50px 20px;
   margin: 5px;
   font-size: 30px;
   border-radius: 30px;
-`
+`;
 export const HabitTitle = styled.h2`
- color: white;
-`
+  color: white;
+`;
 export const Habits = styled.div`
   width: 90%;
   display: flex;
@@ -222,54 +222,53 @@ export const Habits = styled.div`
   margin-right: 300px;
   border: 1px solid black;
   padding: 50px;
-`
+`;
 export const HabitDescription = styled.div`
   color: white;
-`
-export const User = styled.div``
-export const UserCard = styled.div``
+`;
+export const User = styled.div``;
+export const UserCard = styled.div``;
 export const LoadingCard = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
   height: 100vh;
   width: 100%;
-`
+`;
 export const PositionContainer = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
   flex-direction: column;
   margin: 10px;
-  
-`
+`;
 export const ImageLogo = styled.img`
-   width: 40%;
-`
+  width: 40%;
+`;
 export const ImageLogo1 = styled.img`
   width: 10%;
-`
+`;
 export const Checklist = styled.div`
-color: green;
-font-size: 40px;
-`
+  color: green;
+  font-size: 40px;
+`;
 export const NoCheckList = styled.div`
-color:red;
-font-size: 50px;
-`
+  color: red;
+  font-size: 50px;
+`;
 export const ButtonDefault = styled.button`
-margin-top: 30px;
-background: black;
-border-radius: 5px;
-width: 200px;
-height: 50px;
-color: white;
-font-family: cursive;
-font-size: 20px;
-border-radius:50px;
-`
+  margin-top: 30px;
+  background: black;
+  border-radius: 5px;
+  width: 200px;
+  height: 50px;
+  color: white;
+  font-family: cursive;
+  font-size: 20px;
+  border-radius: 50px;
+`;
 export const ButtonDelete = styled.div`
-  font-size: 30px ;
+  font-size: 30px;
   color: white;
   margin-top: 10px;
-`
+`;

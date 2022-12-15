@@ -1,8 +1,8 @@
-import React from 'react'
-import { StyledInputGroup } from './style'
+import React from "react";
+import { StyledInputGroup } from "./style";
 
 const InputGroup = ({ children }) => {
-  return <StyledInputGroup>{children}</StyledInputGroup>
-}
+  return <StyledInputGroup>{children}</StyledInputGroup>;
+};
 
-export default InputGroup
+export default InputGroup;

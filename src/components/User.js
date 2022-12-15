@@ -1,64 +1,64 @@
-import React, { useState, useEffect } from 'react'
-import { EntryPage } from '../pages/style'
-import Api from '../utils/api.utils'
-import { Button, ImageProfile } from './commons'
-import EntryCard from './EntryCard'
-import Input from './Input'
-import InputGroup from './InputGroup'
-import { UploadImageForm } from './UploadImageForm'
+import React, { useState, useEffect } from "react";
+import { EntryPage } from "../pages/style";
+import Api from "../utils/api.utils";
+import { Button, ImageProfile } from "./commons";
+import EntryCard from "./EntryCard";
+import Input from "./Input";
+import InputGroup from "./InputGroup";
+import { UploadImageForm } from "./UploadImageForm";
 
 export const User = () => {
-  const [user, setUser] = useState({})
-  const [username, setUsername] = useState('')
-  const [password, setPassword] = useState('')
+  const [user, setUser] = useState({});
+  const [username, setUsername] = useState("");
+  const [password, setPassword] = useState("");
 
-  const [imageURL, setImageURL] = useState('')
-  const [file, setFile] = useState(null)
+  const [imageURL, setImageURL] = useState("");
+  const [file, setFile] = useState(null);
   const handleChangeImg = (e) => {
-    const fileObject = e.target.files[0]
-    setFile(fileObject)
+    const fileObject = e.target.files[0];
+    setFile(fileObject);
     if (file) {
-      const imageURL = URL.createObjectURL(fileObject)
-      setImageURL(imageURL)
+      const imageURL = URL.createObjectURL(fileObject);
+      setImageURL(imageURL);
     } else {
-      setImageURL('')
+      setImageURL("");
     }
-  }
+  };
   const uploadImage = async () => {
     try {
-      await Api.uploadImage(file)
-      await getUser()
+      await Api.uploadImage(file);
+      await getUser();
     } catch (error) {}
-  }
+  };
   const getUser = async () => {
     try {
-      const data = await Api.getUser()
-      setUser(data)
+      const data = await Api.getUser();
+      setUser(data);
     } catch (error) {
-      console.log(error)
+      console.log(error);
     }
-  }
+  };
   useEffect(() => {
-    getUser()
-  }, [])
+    getUser();
+  }, []);
   const addNewPassword = async () => {
     try {
-      await Api.putPassword({ password })
-      await getUser()
-      setPassword('')
+      await Api.putPassword({ password });
+      await getUser();
+      setPassword("");
     } catch (error) {
-      console.log(error)
+      console.log(error);
     }
-  }
+  };
   const addNewUsername = async () => {
     try {
-      await Api.putUsername({ username })
-      await getUser()
-      setUsername('')
+      await Api.putUsername({ username });
+      await getUser();
+      setUsername("");
     } catch (error) {
-      console.log(error)
+      console.log(error);
     }
-  }
+  };
   return (
     <EntryPage>
       <EntryCard>
@@ -88,5 +88,5 @@ export const User = () => {
         <Button onClick={addNewPassword}>Update Password</Button>
       </EntryCard>
     </EntryPage>
-  )
-}
+  );
+};

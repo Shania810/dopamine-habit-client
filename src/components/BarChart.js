@@ -20,11 +20,11 @@ export const BarChart = ({ charData }) => {
     Tooltip,
     Legend
   );
-  const labels = charData.map(({title}) => title[0].toUpperCase() + title.slice(1,title.length));
-
-  const daysCompleted = charData.map(
-    ({days_completed}) => days_completed
+  const labels = charData.map(
+    ({ title }) => title[0].toUpperCase() + title.slice(1, title.length)
   );
+
+  const daysCompleted = charData.map(({ days_completed }) => days_completed);
   const data = {
     labels,
     datasets: [
@@ -46,6 +46,10 @@ export const BarChart = ({ charData }) => {
   };
 
   return (
-    <Bar style={{ width: 1000, height: 200 ,margin: 20}} options={options} data={data} />
+    <Bar
+      style={{ width: 1000, height: 200, margin: 20 }}
+      options={options}
+      data={data}
+    />
   );
 };

@@ -1,23 +1,23 @@
-import React, { useEffect, useState } from 'react'
-import { PageHeader1 } from '../pages/style.js'
-import Api from '../utils/api.utils.js'
-import { ImageProfile } from './commons.js'
-import EntryCard from './EntryCard/EntryCard.js'
+import React, { useEffect, useState } from "react";
+import { PageHeader1 } from "../pages/style.js";
+import Api from "../utils/api.utils.js";
+import { ImageProfile } from "./commons.js";
+import EntryCard from "./EntryCard/EntryCard.js";
 
 export const UserProfile = () => {
-  const [user, setUser] = useState({})
+  const [user, setUser] = useState({});
   const getUser = async () => {
     try {
-      const data = await Api.getUser()
-      setUser(data)
+      const data = await Api.getUser();
+      setUser(data);
     } catch (error) {
-      console.log(error)
+      console.log(error);
     }
-  }
+  };
 
   useEffect(() => {
-    getUser()
-  }, [])
+    getUser();
+  }, []);
 
   return (
     <div>
@@ -31,5 +31,5 @@ export const UserProfile = () => {
         </div>
       </EntryCard>
     </div>
-  )
-}
+  );
+};

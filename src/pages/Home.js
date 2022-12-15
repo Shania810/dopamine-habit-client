@@ -1,12 +1,12 @@
-import React from 'react'
+import React from "react";
 import {
   ImageLogo,
   PositionContainer,
   SubTitle,
   Title,
-} from '../components/commons'
-import imageLogo from '../components/images/dopamine.png'
-import { PageHeader } from './style'
+} from "../components/commons";
+import imageLogo from "../components/images/dopamine.png";
+import { PageHeader } from "./style";
 export const Home = () => {
   return (
     <PositionContainer>
@@ -21,5 +21,5 @@ export const Home = () => {
       {/* <Button to="/signup"> Sign Up </Button>
       <Button to="/login"> Log In </Button> */}
     </PositionContainer>
-  )
-}
+  );
+};

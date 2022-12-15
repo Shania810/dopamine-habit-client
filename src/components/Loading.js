@@ -1,11 +1,9 @@
-import React from 'react'
-import { LoadingCard } from './commons'
+import React from "react";
+import { LoadingCard } from "./commons";
 export const Loading = () => {
   return (
     <LoadingCard>
-    <div>
-        Loading...
-    </div>
+      <div>Loading...</div>
     </LoadingCard>
-  )
-}
+  );
+};

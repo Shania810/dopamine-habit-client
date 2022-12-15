@@ -1,7 +1,7 @@
-import React, { useEffect, useState } from 'react'
-import { useNavigate } from 'react-router-dom'
-import Api from '../utils/api.utils'
-import { Loading } from '../components/Loading'
+import React, { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
+import Api from "../utils/api.utils";
+import { Loading } from "../components/Loading";
 import {
   Card,
   ChallengeDescription,
@@ -13,39 +13,39 @@ import {
   PositionContainer,
   RealButton,
   SubTitle,
-} from './commons'
-import { PageHeader } from '../pages/style'
-import imageLogo from '../components/images/dopamine.png'
+} from "./commons";
+import { PageHeader } from "../pages/style";
+import imageLogo from "../components/images/dopamine.png";
 
 const Challenge = (props) => {
-  const [challenges, setChallenges] = useState([])
+  const [challenges, setChallenges] = useState([]);
   const getChallenge = async () => {
     try {
-      const data = await Api.getChallenges()
-      setChallenges(data)
+      const data = await Api.getChallenges();
+      setChallenges(data);
     } catch (error) {
-      console.log(error)
+      console.log(error);
     }
-  }
+  };
 
-  const sendToMyHabit = useNavigate()
+  const sendToMyHabit = useNavigate();
   const addChallengeToHabits = async (challenge, description, frequency) => {
     const habit = {
       title: challenge,
       description,
       frequency,
-    }
+    };
     try {
-      await Api.addNewHabit(habit)
-      sendToMyHabit('/habit')
+      await Api.addNewHabit(habit);
+      sendToMyHabit("/habit");
     } catch (error) {
-      console.log(error)
+      console.log(error);
     }
-  }
+  };
 
   useEffect(() => {
-    getChallenge()
-  }, [])
+    getChallenge();
+  }, []);
 
   return challenges.length === 0 ? (
     <Loading />
@@ -73,16 +73,16 @@ const Challenge = (props) => {
                   challenge.challenge,
                   challenge.description,
                   challenge.frequency_recommended
-                )
+                );
               }}
             >
               Turn this challenge into a habit!
             </RealButton>
           </Card>
-        )
+        );
       })}
     </PositionContainer>
-  )
-}
+  );
+};
 
-export default Challenge
+export default Challenge;
