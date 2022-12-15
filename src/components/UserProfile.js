@@ -1,10 +1,11 @@
 import React, { useEffect, useState } from 'react'
-import { useNavigate } from 'react-router-dom'
+import { PageHeader1 } from '../pages/style.js'
 import Api from '../utils/api.utils.js'
-import { ImageProfile, UserCard } from './commons.js'
+import { ImageProfile } from './commons.js'
+import EntryCard from './EntryCard/EntryCard.js'
+
 export const UserProfile = () => {
   const [user, setUser] = useState({})
-  const sendToUser = useNavigate()
   const getUser = async () => {
     try {
       const data = await Api.getUser()
@@ -13,17 +14,22 @@ export const UserProfile = () => {
       console.log(error)
     }
   }
+
   useEffect(() => {
     getUser()
   }, [])
+
   return (
-    <UserCard onClick={() => sendToUser('/user')}>
-      <div>
-        <ImageProfile src={user.imageURL} alt={user.imageURL} />
-        <p>
-          <b>Hi, {user.username}</b>
-        </p>
-      </div>
-    </UserCard>
+    <div>
+      <PageHeader1 to="/user"> update your profile </PageHeader1>
+      <EntryCard>
+        <div>
+          <ImageProfile src={user.imageURL} alt={user.imageURL} />
+          <p>
+            <b>Hi, {user.username}</b>
+          </p>
+        </div>
+      </EntryCard>
+    </div>
   )
 }

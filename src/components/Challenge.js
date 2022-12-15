@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import Api from '../utils/api.utils'
-import {Loading} from '../components/Loading'
+import { Loading } from '../components/Loading'
 import {
   Card,
   ChallengeDescription,
@@ -9,10 +9,13 @@ import {
   ChallengeRec,
   ChallengeRecommendation,
   ChallengeTitle,
+  ImageLogo1,
   PositionContainer,
   RealButton,
   SubTitle,
 } from './commons'
+import { PageHeader } from '../pages/style'
+import imageLogo from '../components/images/dopamine.png'
 
 const Challenge = (props) => {
   const [challenges, setChallenges] = useState([])
@@ -44,9 +47,14 @@ const Challenge = (props) => {
     getChallenge()
   }, [])
 
-  return challenges.length === 0 ? <Loading/>  :
+  return challenges.length === 0 ? (
+    <Loading />
+  ) : (
     <PositionContainer>
-      <SubTitle>Challenges</SubTitle>
+      <SubTitle> Choose a Challenge </SubTitle>
+      <PageHeader to="/">
+        <ImageLogo1 src={imageLogo} />
+      </PageHeader>
       {challenges.map((challenge) => {
         return (
           <Card key={challenge._id}>
@@ -74,6 +82,7 @@ const Challenge = (props) => {
         )
       })}
     </PositionContainer>
+  )
 }
 
 export default Challenge

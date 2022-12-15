@@ -5,6 +5,8 @@ import InputGroup from '../components/InputGroup'
 import Api from '../utils/api.utils'
 import { EntryPage, PageHeader } from './style'
 import Button from '../components/Button'
+import { ImageLogo1 } from '../components/commons'
+import imageLogo from '../components/images/dopamine.png'
 
 // import {PositionContainer} from '../components/commons'
 
@@ -33,7 +35,9 @@ const Login = () => {
 
   return (
     <EntryPage>
-      <PageHeader to="/"> LOGO </PageHeader>
+      <PageHeader to="/">
+        <ImageLogo1 src={imageLogo} />
+      </PageHeader>
       <EntryCard>
         <h2> Log In </h2>
         <form

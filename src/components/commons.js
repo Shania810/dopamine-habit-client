@@ -28,9 +28,20 @@ export const Anchor = styled(Link)`
   text-decoration: none;
   padding: 6px;
   margin-top: 11px;
-  color: midnightblue;
+  color: #0072ff;
 `
-export const Button = styled.button`
+export const Button = styled(Link)`
+  text-decoration: none;
+  font-size: 1em;
+  font-family: optima;
+  color: midnightblue;
+  background-color: lightsteelblue;
+  margin: 1em;
+  padding: 0.25em 1em;
+  border: 2px solid royalblue;
+  border-radius: 12%;
+`
+export const ButtonFinish = styled.button`
 background-color: green;
 width: 200px;
 height: 50px;
@@ -43,17 +54,20 @@ font-size: 20px;
 export const Title = styled.h1`
   display: flex;
   flex-direction: row;
-  font-family: optima;
+  font-family: Ubuntu;
   font-weight: light;
-  font-size: 3em;
-  justify-content: center;
+  font-size: 2em;
+  justify-content: left;
   align-items: right;
-  border: 7px solid bisque;
-  border-radius: 26%;
-  padding: 70px;
+  border: 2px solid black;
+  border-radius: 4%;
+  padding: 50px;
   margin: 20 80 20 20px;
-  color: midnightblue;
-  background-color: blanchealmond;
+  color: #2f8bfd;
+  background-color: #ffffff;
+  box-shadow: 0 0 0 2px rgb(169, 172, 255, 0.5);
+  margin-top: 30px;
+  letter-spacing: 3.5px;
 `
 // export const SignupForm = styled.form`
 //   display: flex;
@@ -85,14 +99,25 @@ export const RealButton = styled.button`
   text-decoration: none;
   font-size: 1em;
   font-family: optima;
-  color: midnightblue;
-  background-color: lightsteelblue;
+  color: #888888;
+  background-color: ;
   margin: 1em;
   padding: 0.25em 1em;
-  border: 2px solid royalblue;
+  border: 1px solid black;
   border-radius: 12%;
 `
 export const SubTitle = styled.h1`
+  font-family: optima;
+  font-weight: light;
+  font-size: 2.7em;
+  border: 3px solid midnightblue;
+  border-radius: 26%;
+  padding: 40px;
+  color: cornflowerblue;
+  background-color: cornsilk;
+  width: 80%;
+`
+/*export const SubTitle = styled.h1`
   font-size: 60px;
   border: 3px solid black;
   color:white;
@@ -102,7 +127,7 @@ export const SubTitle = styled.h1`
   border: 1px solid white;
   border-radius: 50px;
   font-weight: 10;
-`
+`*/
 export const ChallengeTitle = styled.h2`
   font-family: verdana;
   font-weight: normal;
@@ -110,7 +135,7 @@ export const ChallengeTitle = styled.h2`
   justify-content: center;
   align-items: center;
   padding: 5px;
-  color: darkblue;
+  color: #0072ff;
 `
 export const ChallengeDescription = styled.p`
   font-family: verdana;
@@ -128,7 +153,7 @@ export const ChallengeDuration = styled.b`
   padding: 10px;
   margin: 8px;
   justify-content: center;
-  color: darkblue;
+  color: #0072ff;
 `
 export const ChallengeRecommendation = styled.b`
   font-family: verdana;
@@ -136,7 +161,7 @@ export const ChallengeRecommendation = styled.b`
   padding: 2px;
   margin: 1px;
   justify-content: center;
-  color: sandybrown;
+  color: gray;
 `
 export const ChallengeRec = styled.p`
   font-family: verdana;
@@ -144,7 +169,7 @@ export const ChallengeRec = styled.p`
   padding: 1px;
   margin: 1px;
   justify-content: center;
-  color: sandybrown;
+  color: lightgray;
 `
 export const ImageProfile = styled.img`
   width: 50px;
@@ -216,9 +241,13 @@ export const PositionContainer = styled.div`
   justify-content: center;
   flex-direction: column;
   margin: 10px;
+  
 `
 export const ImageLogo = styled.img`
-  width: 90%;
+   width: 40%;
+`
+export const ImageLogo1 = styled.img`
+  width: 10%;
 `
 export const Checklist = styled.div`
 color: green;

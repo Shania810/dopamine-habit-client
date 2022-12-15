@@ -1,11 +1,13 @@
 import React, { useState } from 'react'
 import { useNavigate, Link } from 'react-router-dom'
 import Button from '../components/Button'
+import { ImageLogo1 } from '../components/commons'
 import EntryCard from '../components/EntryCard'
 import Input from '../components/Input'
 import InputGroup from '../components/InputGroup'
 import Api from '../utils/api.utils'
 import { EntryPage, PageHeader } from './style'
+import imageLogo from '../components/images/dopamine.png'
 
 const Signup = () => {
   const [username, setUsername] = useState('')
@@ -33,7 +35,9 @@ const Signup = () => {
 
   return (
     <EntryPage>
-      <PageHeader to="/"> LOGO </PageHeader>
+      <PageHeader to="/">
+        <ImageLogo1 src={imageLogo} />
+      </PageHeader>
       <EntryCard>
         <h2> Sign Up </h2>
         <form
