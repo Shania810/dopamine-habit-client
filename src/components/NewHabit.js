@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import apiUtils from '../utils/api.utils'
-import { FormHabit, RealButton } from './commons'
+import { ButtonDefault, FormHabit, Input, Label} from './commons'
 
 export const NewHabit = ({getHabit}) => {
   const [description, setDescription] = useState(' ')
@@ -12,7 +12,7 @@ export const NewHabit = ({getHabit}) => {
     const addNewHabit = {
       title,
       description,
-      frequency:'uma vez por dia'
+      frequency:'Once a day'
     }
 
     await apiUtils.addNewHabit(addNewHabit)
@@ -20,12 +20,13 @@ export const NewHabit = ({getHabit}) => {
     setDescription(' ')
     setTitle(' ')
   }
-
   return (
     <FormHabit onSubmit={handleSubmit}>
       <div>
-        <label>Habit Title</label>
-        <input
+      <div>
+        <Label>Habit Title</Label>
+        </div>
+        <Input
           type="text"
           value={title}
           onChange={(e) => setTitle(e.target.value)}
@@ -33,14 +34,16 @@ export const NewHabit = ({getHabit}) => {
       </div>
 
       <div>
-        <label>Habit Description</label>
-        <input
+      <div>
+        <Label>Habit Description</Label>
+        </div>
+        <Input
           type="text"
           value={description}
           onChange={(e) => setDescription(e.target.value)}
         />
       </div>
-      <RealButton> Add Habit </RealButton>
+      <ButtonDefault style={{fontSize:30,width:50,color: 'black',background:'white'}} >+</ButtonDefault>
     </FormHabit>
   )
 }

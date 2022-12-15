@@ -1,45 +1,61 @@
-import React, { useState } from "react";
+import React from "react";
 import Api from "../utils/api.utils";
-
-export const DailyHabit = ({ habits }) => {
-  const [backgroundColor, setBackgroundColor] = useState("red");
-  const DaysCompletedCounter = async (e, habitId, days_completed) => {
-    let element = e.target;
-    let backgroundColor = element.style.backgroundColor;
-    const addCompletedDay = { days_completed: days_completed + 1 };
-    const deleteCompletedDay = { days_completed: days_completed - 1 };
+import { BsFillCheckCircleFill } from "react-icons/bs";
+import { TiDelete } from "react-icons/ti";
+import { Button, Checklist, HabitCard, HabitsCard, NoCheckList } from "./commons";
+import randomColor from "./colors/colors";
+export const DailyHabit = ({ habits, getHabit, updateAnalysis }) => {
+  const DaysCompletedCounter = async (habit) => {
+    const addCompletedDay = {
+      days_completed: habit.days_completed + 1,
+      completed: !habit.completed,
+    };
+    const deleteCompletedDay = {
+      days_completed: habit.days_completed - 1,
+      completed: !habit.completed,
+    };
     try {
-      if (backgroundColor === "red") {
-        await Api.addCompletedDay(habitId, addCompletedDay);
-        setBackgroundColor("green");
-      } else if (backgroundColor === "green") {
-        await Api.addCompletedDay(habitId, deleteCompletedDay);
-        setBackgroundColor("red");
+      if (!habit.completed) {
+        await Api.addCompletedDay(habit._id, addCompletedDay);
+      } else {
+        await Api.addCompletedDay(habit._id, deleteCompletedDay);
       }
+      await getHabit();
     } catch (error) {
       console.log(error);
     }
   };
-
   return (
     <div>
-      {habits.map((habit) => {
-        return (
-          <div
-            style={{
-              border: "1px solid black",
-              backgroundColor,
-              margin: 10,
-              padding: 50,
-            }}
-            onClick={(e) =>
-              DaysCompletedCounter(e, habit._id, habit.days_completed)
-            }
-          >
-            {habit.title}
-          </div>
-        );
-      })}
+      <HabitsCard>
+        {habits?.map((habit, index) => {
+          return (
+            <HabitCard
+              key={habit._id}
+              style={{
+                border: `9px solid ${randomColor(index)}`,
+                color: randomColor(index),
+              }}
+              onClick={() => DaysCompletedCounter(habit)}
+            >
+              <p>
+                {habit.title[0].toUpperCase() +
+                  habit.title.slice(1, habit.title.length)}
+              </p>
+              {habit.completed ? (
+                <Checklist>
+                  <BsFillCheckCircleFill />
+                </Checklist>
+              ) : (
+                <NoCheckList>
+                  <TiDelete />
+                </NoCheckList>
+              )}
+            </HabitCard>
+          );
+        })}
+      </HabitsCard>
+      <Button onClick={updateAnalysis}>Finish</Button>
     </div>
   );
 };

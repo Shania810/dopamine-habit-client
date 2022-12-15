@@ -94,7 +94,8 @@ class Api {
   }
   postAnalysis = async (habitId) => {
     try {
-      await this.api.post('/analysis', habitId)
+     const { data } = await this.api.post('/analysis', habitId)
+     return data
     } catch (error) {
       throw error
     }
@@ -137,18 +138,25 @@ class Api {
     const formData = new FormData()
     formData.append('image', file)
     try {
-      const data = await this.api.put('/user/upload-image', formData)
+      const { data }= await this.api.put('/user/upload-image', formData)
       return data
     } catch (error) {
       throw error
     }
   }
-  putAnalysisHabits = async (habits) => {
+  putAnalysisHabits = async (analysis,habits) => {
     try {
-      const { data } = await this.api.put('/analysis/habits', habits)
+      const { data } = await this.api.put(`/analysis/habits/${analysis._id}`, habits)
       return data
     } catch (error) {
       throw error
+    }
+  }
+  putAnalysis = async (analysis,update)=>{
+    try {
+      await this.api.put(`/analysis/${analysis[analysis.length - 1]._id}`,update)
+    } catch (error) {
+      console.log(error)
     }
   }
 }

@@ -30,16 +30,15 @@ export const Anchor = styled(Link)`
   margin-top: 11px;
   color: midnightblue;
 `
-export const Button = styled(Link)`
-  text-decoration: none;
-  font-size: 1em;
-  font-family: optima;
-  color: midnightblue;
-  background-color: lightsteelblue;
-  margin: 1em;
-  padding: 0.25em 1em;
-  border: 2px solid royalblue;
-  border-radius: 12%;
+export const Button = styled.button`
+background-color: green;
+width: 200px;
+height: 50px;
+border: solid green;
+border-radius: 50px;
+color:white;
+font-family: cursive;
+font-size: 20px;
 `
 export const Title = styled.h1`
   display: flex;
@@ -94,15 +93,15 @@ export const RealButton = styled.button`
   border-radius: 12%;
 `
 export const SubTitle = styled.h1`
-  font-family: optima;
-  font-weight: light;
-  font-size: 2.7em;
-  border: 3px solid midnightblue;
-  border-radius: 26%;
-  padding: 40px;
-  color: cornflowerblue;
-  background-color: cornsilk;
-  width: 80%;
+  font-size: 60px;
+  border: 3px solid black;
+  color:white;
+  background-color:black;
+  width: 40%;
+  padding: 50px;
+  border: 1px solid white;
+  border-radius: 50px;
+  font-weight: 10;
 `
 export const ChallengeTitle = styled.h2`
   font-family: verdana;
@@ -153,32 +152,43 @@ export const ImageProfile = styled.img`
   border-radius: 50px;
 `
 export const FormHabit = styled.form`
-  background-color: bisque;
+  background-color: black;
   padding: 20px;
   width: 30%;
   position: fixed;
   bottom: 0;
   right: 0;
+  border-radius: 50px;
+`
+export const Label = styled.label`
+color: white;
+font-size: 20px;
+`
+export const Input = styled.input`
+width: 250px;
+height: 30px;
+border-radius: 50px;
+margin: 10px;
+font-size: cursive;
 `
 export const HabitsCard = styled.div`
   display: flex;
   flex-wrap: wrap;
-  align-items: center;
-  justify-content: center;
-  padding: 5px 50px;
-  width: 90%;
+  margin: 40px;
+  width: 100%;
 `
 export const HabitCard = styled.div`
-  border: 5px dotted royalblue;
-  border-radius: 26%;
-  margin: 30px;
-  width: 40%;
+  display:flex;
+  flex-direction:column;
+  width: 300px;
+  height: 200px;
+  padding:50px 20px;
+  margin: 5px;
+  font-size: 30px;
+  border-radius: 30px;
 `
 export const HabitTitle = styled.h2`
-  color: darkblue;
-  font-family: verdana;
-  font-weight: normal;
-  font-size: 2.7em;
+ color: white;
 `
 export const Habits = styled.div`
   width: 90%;
@@ -187,6 +197,9 @@ export const Habits = styled.div`
   margin-right: 300px;
   border: 1px solid black;
   padding: 50px;
+`
+export const HabitDescription = styled.div`
+  color: white;
 `
 export const User = styled.div``
 export const UserCard = styled.div``
@@ -198,14 +211,36 @@ export const LoadingCard = styled.div`
   width: 100%;
 `
 export const PositionContainer = styled.div`
-  position: absolute;
-  right: 0;
-  width: 90%;
   display: flex;
   align-items: center;
   justify-content: center;
   flex-direction: column;
+  margin: 10px;
 `
 export const ImageLogo = styled.img`
   width: 90%;
+`
+export const Checklist = styled.div`
+color: green;
+font-size: 40px;
+`
+export const NoCheckList = styled.div`
+color:red;
+font-size: 50px;
+`
+export const ButtonDefault = styled.button`
+margin-top: 30px;
+background: black;
+border-radius: 5px;
+width: 200px;
+height: 50px;
+color: white;
+font-family: cursive;
+font-size: 20px;
+border-radius:50px;
+`
+export const ButtonDelete = styled.div`
+  font-size: 30px ;
+  color: white;
+  margin-top: 10px;
 `

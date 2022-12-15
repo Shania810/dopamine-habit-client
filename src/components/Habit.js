@@ -1,8 +1,9 @@
 import React from 'react'
-import { RealButton, HabitCard, HabitTitle, HabitsCard } from './commons'
+import { HabitCard, HabitTitle, HabitsCard, PositionContainer, HabitDescription, ButtonDelete} from './commons'
 import Api from '../utils/api.utils'
-
-const Habit = ({ habits, getHabit }) => {
+import randomColor from './colors/colors'
+import {MdDelete} from 'react-icons/md'
+const Habit = ({ habits, getHabit, condition }) => {
   const deleteHabit = async (id) => {
     try {
       await Api.deleteHabit(id)
@@ -11,46 +12,42 @@ const Habit = ({ habits, getHabit }) => {
       console.log(error)
     }
   }
-
-  const DaysCompletedCounter = async (habitId, days_completed) => {
-    const addCompletedDay = { days_completed: days_completed + 1 }
-    try {
-      await Api.addCompletedDay(habitId, addCompletedDay)
-      await getHabit()
-    } catch (error) {
-      console.log(error)
-    }
-  }
-
   return (
-    <HabitsCard>
-      {habits.map((habit) => {
+    <PositionContainer>
+    <HabitsCard style={{display:'flex',alignItems:'center',justifyContent:'center'}} >
+      {habits.map((habit,index) => {
         return (
-          <HabitCard key={habit._id}>
+          <HabitCard key={habit._id}
+           style={{
+                border: `9px solid ${randomColor(index)}`,
+                background: randomColor(index),
+                width: 500,
+                height:400
+              }}
+          >
             <HabitTitle>
               {habit.title[0].toUpperCase() +
                 habit.title.slice(1, habit.title.length)}
             </HabitTitle>
-            {habit.description}
-            <p>frequency:{habit.frequency} </p>
-            <RealButton
-              onClick={() => {
-                deleteHabit(habit._id)
-              }}
-            >
-              Delete
-            </RealButton>
-            <RealButton
-              onClick={() => {
-                DaysCompletedCounter(habit._id, habit.days_completed)
-              }}
-            >
-              I did this today!
-            </RealButton>
+            <HabitDescription>
+            <div>
+            <p style={{color:'black'}}><b>Description</b></p>
+            <p>{habit.description[0].toUpperCase() +
+                habit.description.slice(1, habit.description.length)}</p>
+            </div>
+            <div>
+            <p style={{color:'black'}}><b>Frequency</b></p>
+            <p>{habit.frequency[0].toUpperCase() +
+                habit.frequency.slice(1, habit.frequency.length)}</p>
+            </div>
+            </HabitDescription>
+            {condition() && 
+             <ButtonDelete><MdDelete  onClick={() =>deleteHabit(habit._id)}/></ButtonDelete>}
           </HabitCard>
         )
       })}
     </HabitsCard>
+    </PositionContainer>
   )
 }
 

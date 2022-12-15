@@ -1,4 +1,4 @@
-import React from 'react'
+import React from "react";
 import {
   Chart,
   CategoryScale,
@@ -7,41 +7,45 @@ import {
   Title,
   Tooltip,
   Legend,
-} from 'chart.js'
-import { Bar } from 'react-chartjs-2'
+} from "chart.js";
+import { Bar } from "react-chartjs-2";
+import randomColor from "./colors/colors";
 
 export const BarChart = ({ charData }) => {
-  Chart.register(CategoryScale, LinearScale, BarElement, Title, Tooltip, Legend)
-  const labels = charData.map((habitAnalysis) => habitAnalysis.title)
+  Chart.register(
+    CategoryScale,
+    LinearScale,
+    BarElement,
+    Title,
+    Tooltip,
+    Legend
+  );
+  const labels = charData.map(({title}) => title[0].toUpperCase() + title.slice(1,title.length));
 
   const daysCompleted = charData.map(
-    (habitAnalysis) => habitAnalysis.days_completed
-  )
+    ({days_completed}) => days_completed
+  );
   const data = {
     labels,
     datasets: [
       {
-        label: 'completed days',
+        label: "Days completed",
         data: daysCompleted,
-        backgroundColor: 'rgba(255, 99, 132, 0.5)',
+        backgroundColor: randomColor(labels[0]),
       },
     ],
-  }
+  };
 
   const options = {
     responsive: true,
     plugins: {
       legend: {
-        position: 'top',
-      },
-      title: {
-        display: true,
-        text: 'Habit Analysis',
+        position: "top",
       },
     },
-  }
+  };
 
   return (
-    <Bar style={{ width: 1000, height: 200 }} options={options} data={data} />
-  )
-}
+    <Bar style={{ width: 1000, height: 200 ,margin: 20}} options={options} data={data} />
+  );
+};
