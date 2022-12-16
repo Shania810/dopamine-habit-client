@@ -1,70 +1,13 @@
-# Getting Started with Create React App
+The Dopamine Habit 
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Hi, and thank you for being here. This app was created to allow you to keep track of your habits. Its main idea is also that you will be inspired by your current daily habits and choose some new ones. We believe that all humans have habits no matter what or how you judge these habits. If the choice in creating them is guided by your conscious mind and is result-driven, you're more likely to develop habits that support the life you're creating. 
 
-## Available Scripts
+So let's do this together, let us help! 
 
-In the project directory, you can run:
+Start by creating an account. Go to the signup page so that you can enter a username and password as well as your email address. This will help us keep the information in your account where no one else can see. Next you'll be prompted to the login page, where you can enter your credentials to log yourself into your account. Next up, you'll see a list of "challenges" to get you going. Here you can use these to get inspired if you have no idea what you're into or what you want to do. Alternatively, you may have a pretty good idea of how you want to move forward and are ready to give the green light on some of these. By clicking the "turn this challenge into a habit" button, you'll be adding this particular challenge to your very own list of habits. Day after day when you open the app you click on which of those habits (as well as those you typed in yourself) you tended to on that particular day. 
 
-### `npm start`
+After at least seven days, and ongoing of course, you will be able to run an analysis. Once you create an analysis you'll see a graph of how many days you devoted to each activity on your list, on that set of 7 days. Voila! Now you can see what you've been up to! 
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+We hope that this app will help you stay on track. Overtime, we hope that each habit will become second nature, just things you do! As you see your results on the page, we hope you enjoy that dopamine rush and keep coming back for more! 
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
-
-### `npm test`
-
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `npm run build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+Createad by Shania Antezana and Anneliese Kappey
