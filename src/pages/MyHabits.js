@@ -75,7 +75,6 @@ export const MyHabits = () => {
 
   useEffect(() => {
     getHabit();
-    runAnalysis();
   }, [analyses]);
   useEffect(() => {
     const showDaily = () => {
