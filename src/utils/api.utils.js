@@ -100,6 +100,13 @@ class Api {
       throw error;
     }
   };
+  putHabitsCompleted = async()=>{
+    try {
+      await this.api.put("/habit/completed")
+    } catch (error) {
+      throw error
+    }
+  }
   deleteHabit = async (id) => {
     try {
       await this.api.delete(`/habit/${id}`);
