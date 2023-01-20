@@ -15,6 +15,7 @@ export const MyHabits = () => {
   const [value, setValue] = useState(false);
   const [analyses, setAnalyses] = useState([]);
   let [showComponentDaily, setShowComponentDaily] = useState(false);
+
   const getHabit = async () => {
     try {
       const data = await Api.getHabits();
@@ -47,12 +48,11 @@ export const MyHabits = () => {
       console.log(error);
     }
   };
-
+  
   const updateAnalysis = async () => {
     try {
       await Api.putAnalysis(analyses, {
-        updatedAt: new Date(),
-        duration: new Date(),
+        updatedAt: new Date()
       });
       setShowComponentDaily(false);
     } catch (error) {
@@ -107,21 +107,19 @@ export const MyHabits = () => {
         <ButtonDefault onClick={addAnalysis}>
           Analyze me <BsFillBarChartFill />
         </ButtonDefault>
-      ) : analyses[analyses.length - 1]?.duration > 0 ? (
+      ) : analyses[analyses.length - 1]?.duration ? (
         <h1>
           You have completed only {analyses[analyses.length - 1]?.duration}
-          {analyses[analyses.length - 1]?.duration === 1 ? " day" : " days"}
+          {analyses[analyses.length - 1]?.duration ? " day" : " days"}
         </h1>
       ) : (
         <h1>You can do anything!</h1>
       )}
-      {showComponentDaily === false && (
         <Habit
           habits={habits}
           getHabit={getHabit}
           condition={showButtonAddDeleteHabitAndAddAnalysis}
         />
-      )}
       {showButtonAddDeleteHabitAndAddAnalysis() === true && (
         <ButtonDefault onClick={() => setValue(!value)}>Add Goal</ButtonDefault>
       )}

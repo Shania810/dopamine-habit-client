@@ -1,29 +1,6 @@
 import { Link } from "react-router-dom";
 import styled from "styled-components";
 
-// export const Nav = styled.nav`
-//   background-color: bisque;
-//   float: left;
-//   left:0;
-//   top:0;
-//   position:fixed;
-//   display: flex;
-//   flex-direction: column;
-//   align-items: center;
-//   height: 100vh;
-//   width: 140px;
-//   margin: 2px;
-// `
-// export const NavButton = styled(Link)`
-//   text-decoration: none;
-//   font-family: optima;
-//   border: 0.5px solid midnightblue;
-//   padding: 12px;
-//   margin: 13px;
-//   border-radius: 15%;
-//   color: cornflowerblue;
-//   background-color: cornsilk;
-// `
 export const Anchor = styled(Link)`
   text-decoration: none;
   padding: 6px;
@@ -69,21 +46,6 @@ export const Title = styled.h1`
   margin-top: 30px;
   letter-spacing: 3.5px;
 `;
-// export const SignupForm = styled.form`
-//   display: flex;
-//   flex-direction: column;
-//   align-items: center;
-// `
-// export const SignupInput = styled.input`
-//   height: 30px;
-//   width: 250px;
-//   border: 2px solid midnightblue;
-//   border-radius: 10%;
-//   background-color: blanchealmond;
-//   padding: 5px;
-//   margin: 10px;
-//   color: ${(props) => props.type || 'cornflowerblue'};
-// `
 
 export const Card = styled.div`
   display: flex;
@@ -106,18 +68,8 @@ export const RealButton = styled.button`
   border: 1px solid black;
   border-radius: 12%;
 `;
+
 export const SubTitle = styled.h1`
-  font-family: optima;
-  font-weight: light;
-  font-size: 2.7em;
-  border: 3px solid midnightblue;
-  border-radius: 26%;
-  padding: 40px;
-  color: cornflowerblue;
-  background-color: cornsilk;
-  width: 80%;
-`;
-/*export const SubTitle = styled.h1`
   font-size: 60px;
   border: 3px solid black;
   color:white;
@@ -127,7 +79,7 @@ export const SubTitle = styled.h1`
   border: 1px solid white;
   border-radius: 50px;
   font-weight: 10;
-`*/
+`
 export const ChallengeTitle = styled.h2`
   font-family: verdana;
   font-weight: normal;
@@ -199,16 +151,14 @@ export const Input = styled.input`
 export const HabitsCard = styled.div`
   display: flex;
   flex-wrap: wrap;
-  margin: 40px;
   width: 100%;
 `;
 export const HabitCard = styled.div`
   display: flex;
   flex-direction: column;
-  width: 300px;
-  height: 200px;
-  padding: 50px 20px;
-  margin: 5px;
+  padding:20px;
+  width:45%;
+  margin:10px;
   font-size: 30px;
   border-radius: 30px;
 `;
@@ -226,8 +176,7 @@ export const Habits = styled.div`
 export const HabitDescription = styled.div`
   color: white;
 `;
-export const User = styled.div``;
-export const UserCard = styled.div``;
+
 export const LoadingCard = styled.div`
   display: flex;
   align-items: center;

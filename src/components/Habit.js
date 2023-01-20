@@ -34,9 +34,7 @@ const Habit = ({ habits, getHabit, condition }) => {
               key={habit._id}
               style={{
                 border: `9px solid ${randomColor(index)}`,
-                background: randomColor(index),
-                width: 500,
-                height: 400,
+                background: randomColor(index)
               }}
             >
               <HabitTitle>

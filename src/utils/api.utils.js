@@ -3,7 +3,7 @@ import axios from "axios";
 class Api {
   constructor() {
     this.api = axios.create({
-      baseURL: "https://localhost:6000/",
+      baseURL: "http://localhost:7000/",
     });
 
     this.api.interceptors.request.use(
