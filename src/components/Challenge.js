@@ -18,7 +18,7 @@ import { PageHeader } from "../pages/style";
 import imageLogo from "../components/images/dopamine.png";
 
 const Challenge = (props) => {
-  const [challenges, setChallenges] = useState([]);
+  const [challenges, setChallenges] = useState(null);
   const getChallenge = async () => {
     try {
       const data = await Api.getChallenges();
@@ -47,15 +47,14 @@ const Challenge = (props) => {
     getChallenge();
   }, []);
 
-  return challenges.length === 0 ? (
-    <Loading />
-  ) : (
+  return challenges ?
+  (
     <PositionContainer>
       <SubTitle> Choose a Challenge </SubTitle>
       <PageHeader to="/">
         <ImageLogo1 src={imageLogo} />
       </PageHeader>
-      {challenges.map((challenge) => {
+      {challenges?.map((challenge) => {
         return (
           <Card key={challenge._id}>
             <ChallengeTitle>{challenge.challenge}</ChallengeTitle>
@@ -82,7 +81,11 @@ const Challenge = (props) => {
         );
       })}
     </PositionContainer>
-  );
+  ):
+  
+  (
+    <Loading />
+  ) 
 };
 
 export default Challenge;

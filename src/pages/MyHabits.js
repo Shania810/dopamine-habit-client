@@ -9,9 +9,10 @@ import {
 import Api from "../utils/api.utils";
 import { DailyHabit } from "../components/DailyHabit";
 import { BsFillBarChartFill } from "react-icons/bs";
+import {Loading} from "../components/Loading";
 
 export const MyHabits = () => {
-  const [habits, setHabits] = useState([]);
+  const [habits, setHabits] = useState(null);
   const [value, setValue] = useState(false);
   const [analyses, setAnalyses] = useState([]);
   let [showComponentDaily, setShowComponentDaily] = useState(false);
@@ -32,17 +33,15 @@ export const MyHabits = () => {
       console.log(error);
     }
   };
-
   useEffect(() => {
     getHabit();
     runAnalysis();
-  }, []);
+  },[]);
 
   const addAnalysis = async () => {
     try {
       const analysis = await Api.postAnalysis();
       await Api.putAnalysisHabits(analysis, habits);
-      setShowComponentDaily(true);
       runAnalysis();
     } catch (error) {
       console.log(error);
@@ -54,6 +53,8 @@ export const MyHabits = () => {
       await Api.putAnalysis(analyses, {
         updatedAt: new Date()
       });
+      await Api.putHabitsCompleted();
+      runAnalysis();
       setShowComponentDaily(false);
     } catch (error) {
       console.log(error);
@@ -72,24 +73,21 @@ export const MyHabits = () => {
     }
     return show;
   };
-
   useEffect(() => {
     getHabit();
-  }, [analyses]);
+  },[]);
+
   useEffect(() => {
     const showDaily = () => {
       let show = null;
       if (analyses.length === 0) {
         show = false;
-      } else if (
-        analyses[analyses.length - 1]?.updatedAt ||
-        analyses.habits.length === 0
-      ) {
+      } else {
         const updatedLast = new Date(analyses[analyses.length - 1]?.updatedAt);
         const createdAt = new Date(analyses[analyses.length - 1]?.createdAt);
         const date = updatedLast.getDate();
-        const now = new Date().getDate();
-        if (date !== now || updatedLast.getHours() === createdAt.getHours()) {
+        const now = new Date();
+        if (date !== now.getDate()) {
           show = true;
         } else {
           show = false;
@@ -99,9 +97,8 @@ export const MyHabits = () => {
     };
     const show = showDaily();
     setShowComponentDaily(show);
-  }, [analyses]);
-  return (
-    <PositionContainer style={{ margin: "50px 0" }}>
+  }, [analyses,showComponentDaily]);
+  return habits ? <PositionContainer style={{ margin: "50px 0" }}>
       <SubTitle style={{ width: 400 }}>My Goals</SubTitle>
       {showButtonAddDeleteHabitAndAddAnalysis() ? (
         <ButtonDefault onClick={addAnalysis}>
@@ -110,7 +107,7 @@ export const MyHabits = () => {
       ) : analyses[analyses.length - 1]?.duration ? (
         <h1>
           You have completed only {analyses[analyses.length - 1]?.duration}
-          {analyses[analyses.length - 1]?.duration ? " day" : " days"}
+          {analyses[analyses.length - 1]?.duration <= 1 ? " day" : " days"}
         </h1>
       ) : (
         <h1>You can do anything!</h1>
@@ -120,17 +117,17 @@ export const MyHabits = () => {
           getHabit={getHabit}
           condition={showButtonAddDeleteHabitAndAddAnalysis}
         />
-      {showButtonAddDeleteHabitAndAddAnalysis() === true && (
+      {showButtonAddDeleteHabitAndAddAnalysis() && (
         <ButtonDefault onClick={() => setValue(!value)}>Add Goal</ButtonDefault>
       )}
       {value && <NewHabit getHabit={getHabit} />}
-      {showComponentDaily === true && (
+      {showComponentDaily && (
         <DailyHabit
           habits={habits}
           getHabit={getHabit}
           updateAnalysis={updateAnalysis}
         />
       )}
-    </PositionContainer>
-  );
+    </PositionContainer>:<Loading/>
+  ;
 };
