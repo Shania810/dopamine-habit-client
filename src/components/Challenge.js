@@ -17,8 +17,10 @@ import {
 import { PageHeader } from "../pages/style";
 import imageLogo from "../components/images/dopamine.png";
 
-const Challenge = (props) => {
+const Challenge = () => {
   const [challenges, setChallenges] = useState(null);
+  const [analyses, setAnalyses] = useState(null);
+
   const getChallenge = async () => {
     try {
       const data = await Api.getChallenges();
@@ -47,45 +49,58 @@ const Challenge = (props) => {
     getChallenge();
   }, []);
 
+  const allAnalyses = async () => {
+    try {
+      const data = await Api.getAnalysis()
+      setAnalyses(data)
+    } catch (error) {
+      console.log(error)
+    }
+  }
+
+  useEffect(() => {
+    allAnalyses()
+  }, [])
+  console.log(analyses?.length > 0)
   return challenges ?
-  (
-    <PositionContainer>
-      <SubTitle> Choose a Challenge </SubTitle>
-      <PageHeader to="/">
-        <ImageLogo1 src={imageLogo} />
-      </PageHeader>
-      {challenges?.map((challenge) => {
-        return (
-          <Card key={challenge._id}>
-            <ChallengeTitle>{challenge.challenge}</ChallengeTitle>
-            <ChallengeDescription>{challenge.description}</ChallengeDescription>
-            <ChallengeDuration>
-              {challenge.duration_of_challenge}
-            </ChallengeDuration>
-            <ChallengeRec>
-              <ChallengeRecommendation>Recommended: </ChallengeRecommendation>
-              {challenge.frequency_recommended}
-            </ChallengeRec>
-            <RealButton
-              onClick={() => {
-                addChallengeToHabits(
-                  challenge.challenge,
-                  challenge.description,
-                  challenge.frequency_recommended
-                );
-              }}
-            >
-              Turn this challenge into a habit!
-            </RealButton>
-          </Card>
-        );
-      })}
-    </PositionContainer>
-  ):
-  
-  (
-    <Loading />
-  ) 
+    (
+      <PositionContainer>
+        <SubTitle> Choose a Challenge </SubTitle>
+        <PageHeader to="/">
+          <ImageLogo1 src={imageLogo} />
+        </PageHeader>
+        {challenges?.map((challenge) => {
+          return (
+            <Card key={challenge._id}>
+              <ChallengeTitle>{challenge.challenge}</ChallengeTitle>
+              <ChallengeDescription>{challenge.description}</ChallengeDescription>
+              <ChallengeDuration>
+                {challenge.duration_of_challenge}
+              </ChallengeDuration>
+              <ChallengeRec>
+                <ChallengeRecommendation>Recommended: </ChallengeRecommendation>
+                {challenge.frequency_recommended}
+              </ChallengeRec>
+              {analyses?.length === 0 && <RealButton
+                onClick={() => {
+                  addChallengeToHabits(
+                    challenge.challenge,
+                    challenge.description,
+                    challenge.frequency_recommended
+                  );
+                }}
+              >
+                Turn this challenge into a habit!
+              </RealButton>}
+            </Card>
+          );
+        })}
+      </PositionContainer>
+    ) :
+
+    (
+      <Loading />
+    )
 };
 
 export default Challenge;
