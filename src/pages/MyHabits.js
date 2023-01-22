@@ -84,7 +84,6 @@ export const MyHabits = () => {
         show = false;
       } else {
         const updatedLast = new Date(analyses[analyses.length - 1]?.updatedAt);
-        const createdAt = new Date(analyses[analyses.length - 1]?.createdAt);
         const date = updatedLast.getDate();
         const now = new Date();
         if (date !== now.getDate()) {
@@ -97,7 +96,8 @@ export const MyHabits = () => {
     };
     const show = showDaily();
     setShowComponentDaily(show);
-  }, [analyses,showComponentDaily]);
+  },[analyses]);
+
   return habits ? <PositionContainer style={{ margin: "50px 0" }}>
       <SubTitle style={{ width: 400 }}>My Goals</SubTitle>
       {showButtonAddDeleteHabitAndAddAnalysis() ? (
