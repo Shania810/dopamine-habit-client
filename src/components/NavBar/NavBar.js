@@ -1,32 +1,27 @@
 import React from "react";
-import { Anchor } from "../commons";
-// import imageLogo from '../images/dopamine.png'
 import { StyledNavBar, NavItemLink } from "./style";
 
-// export const NavBar = () => {
-//   return (
-//     <Nav>
-//       <Anchor to="/"><ImageLogo src={imageLogo} /></Anchor>
-//       <NavButton to="/habit"> My Habits </NavButton>
-//       <NavButton to="/challenge"> Challenges </NavButton>
-//       <NavButton to="/analysis"> My Weekly Analysis </NavButton>
-//     </Nav>
-//   )
-// }
-
-const NavBar = ({ children }) => {
+const NavBar = () => {
+  const user = localStorage.getItem('token')
   return (
     <StyledNavBar>
-      <Anchor to="/">{/* <ImageLogo src={imageLogo} /> */}</Anchor>
-      <NavItemLink to="/login" fill>
-        Log In
-      </NavItemLink>
-      <NavItemLink to="/signup" fill>
-        Sign Up
-      </NavItemLink>
-      <NavItemLink to="/habit"> My Habits </NavItemLink>
-      <NavItemLink to="/challenge">Challenges</NavItemLink>
-      <NavItemLink to="/analysis"> My Weekly Analysis </NavItemLink>
+      <NavItemLink>Dopamine Habit</NavItemLink>
+      <div>
+        {!user ?
+          <span>
+            <NavItemLink to="/login">
+              Log In
+            </NavItemLink>
+            <NavItemLink to="/signup">
+              Sign Up
+            </NavItemLink>
+          </span> : <span><NavItemLink>
+            Logout
+          </NavItemLink></span>}
+        <NavItemLink to="/habit"> My Habits </NavItemLink>
+        <NavItemLink to="/challenge">Challenges</NavItemLink>
+        <NavItemLink to="/analysis"> My Weekly Analysis </NavItemLink>
+      </div>
     </StyledNavBar>
   );
 };
