@@ -157,7 +157,7 @@ export const HabitCard = styled.div`
   display: flex;
   flex-direction: column;
   padding:20px;
-  width:45%;
+  width:${props => props.width}
   margin:10px;
   font-size: 30px;
   border-radius: 30px;

@@ -41,6 +41,7 @@ export const DailyHabit = ({ habits, getHabit, updateAnalysis }) => {
               style={{
                 border: `9px solid ${randomColor(index)}`,
                 color: randomColor(index),
+                width: 300
               }}
               onClick={() => DaysCompletedCounter(habit)}
             >
