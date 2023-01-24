@@ -31,6 +31,7 @@ const Habit = ({ habits, getHabit, condition }) => {
         {habits.map((habit, index) => {
           return (
             <HabitCard
+              width='400px'
               key={habit._id}
               style={{
                 border: `9px solid ${randomColor(index)}`,

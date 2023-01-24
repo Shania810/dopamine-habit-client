@@ -33,15 +33,16 @@ export const DailyHabit = ({ habits, getHabit, updateAnalysis }) => {
   };
   return (
     <div>
+    <h1>What did you complete today?</h1>
       <HabitsCard>
         {habits?.map((habit, index) => {
           return (
             <HabitCard
               key={habit._id}
+              width='300px'
               style={{
                 border: `9px solid ${randomColor(index)}`,
-                color: randomColor(index),
-                width: 300
+                color: randomColor(index)
               }}
               onClick={() => DaysCompletedCounter(habit)}
             >
@@ -62,7 +63,9 @@ export const DailyHabit = ({ habits, getHabit, updateAnalysis }) => {
           );
         })}
       </HabitsCard>
+      <div>
       <ButtonFinish onClick={updateAnalysis}>Finish</ButtonFinish>
+      </div>
     </div>
   );
 };

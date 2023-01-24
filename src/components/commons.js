@@ -150,6 +150,7 @@ export const Input = styled.input`
 `;
 export const HabitsCard = styled.div`
   display: flex;
+  justify-content: center;
   flex-wrap: wrap;
   width: 100%;
 `;
@@ -157,7 +158,7 @@ export const HabitCard = styled.div`
   display: flex;
   flex-direction: column;
   padding:20px;
-  width:${props => props.width}
+  width:${props => props.width};
   margin:10px;
   font-size: 30px;
   border-radius: 30px;
