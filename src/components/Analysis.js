@@ -14,13 +14,12 @@ const Analysis = () => {
       console.log(error);
     }
   };
-  console.log(analyses)
   useEffect(() => {
     runAnalysis();
   }, []);
 
   if (analyses) {
-    if (analyses[analyses.length - 1].duration === 7) {
+    if (analyses[analyses.length - 1].duration >= 7) {
       return <PositionContainer>
         <SubTitle style={{ width: 500 }}>My Analysis </SubTitle>
         {analyses?.map((analysis) => <BarChart charData={analysis.habits} />)}
