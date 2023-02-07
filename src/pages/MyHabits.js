@@ -65,7 +65,7 @@ export const MyHabits = () => {
     if (analyses.length === 0) {
       show = true;
     } else {
-      if (analyses[analyses.length - 1]?.duration === 7) {
+      if (analyses[analyses.length - 1]?.duration >= 7) {
         show = true;
       } else {
         show = false;
