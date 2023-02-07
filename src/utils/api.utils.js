@@ -3,7 +3,7 @@ import axios from "axios";
 class Api {
   constructor() {
     this.api = axios.create({
-      baseURL: "http://localhost:7000/",
+      baseURL: "https://dopamine-habit-server.cyclic.app/",
     });
 
     this.api.interceptors.request.use(
