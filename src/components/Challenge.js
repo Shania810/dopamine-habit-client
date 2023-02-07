@@ -61,7 +61,7 @@ const Challenge = () => {
   useEffect(() => {
     allAnalyses()
   }, [])
-  console.log(analyses?.length > 0)
+
   return challenges ?
     (
       <PositionContainer>
@@ -81,7 +81,7 @@ const Challenge = () => {
                 <ChallengeRecommendation>Recommended: </ChallengeRecommendation>
                 {challenge.frequency_recommended}
               </ChallengeRec>
-              {analyses?.length === 0 && <RealButton
+              {analyses?.[analyses.length - 1]?.duration >= 7 && <RealButton
                 onClick={() => {
                   addChallengeToHabits(
                     challenge.challenge,
