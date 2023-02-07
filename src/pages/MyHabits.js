@@ -9,7 +9,7 @@ import {
 import Api from "../utils/api.utils";
 import { DailyHabit } from "../components/DailyHabit";
 import { BsFillBarChartFill } from "react-icons/bs";
-import {Loading} from "../components/Loading";
+import { Loading } from "../components/Loading";
 
 export const MyHabits = () => {
   const [habits, setHabits] = useState(null);
@@ -36,7 +36,7 @@ export const MyHabits = () => {
   useEffect(() => {
     getHabit();
     runAnalysis();
-  },[]);
+  }, []);
 
   const addAnalysis = async () => {
     try {
@@ -47,7 +47,7 @@ export const MyHabits = () => {
       console.log(error);
     }
   };
-  
+
   const updateAnalysis = async () => {
     try {
       await Api.putAnalysis(analyses, {
@@ -75,7 +75,7 @@ export const MyHabits = () => {
   };
   useEffect(() => {
     getHabit();
-  },[]);
+  }, []);
 
   useEffect(() => {
     const showDaily = () => {
@@ -96,38 +96,40 @@ export const MyHabits = () => {
     };
     const show = showDaily();
     setShowComponentDaily(show);
-  },[analyses]);
+  }, [analyses]);
 
   return habits ? <PositionContainer style={{ margin: "50px 0" }}>
-      <SubTitle style={{ width: 400 }}>My Goals</SubTitle>
-      {showButtonAddDeleteHabitAndAddAnalysis() ? (
-        <ButtonDefault onClick={addAnalysis}>
-          Analyze me <BsFillBarChartFill />
-        </ButtonDefault>
-      ) : analyses[analyses.length - 1]?.duration ? (
-        <h1>
-          You have completed only {analyses[analyses.length - 1]?.duration}
-          {analyses[analyses.length - 1]?.duration <= 1 ? " day" : " days"}
-        </h1>
-      ) : (
-        <h1>You can do anything!</h1>
-      )}
-        <Habit
-          habits={habits}
-          getHabit={getHabit}
-          condition={showButtonAddDeleteHabitAndAddAnalysis}
-        />
-      {showButtonAddDeleteHabitAndAddAnalysis() && (
-        <ButtonDefault onClick={() => setValue(!value)}>Add Goal</ButtonDefault>
-      )}
-      {value && <NewHabit getHabit={getHabit} />}
-      {showComponentDaily && (
-        <DailyHabit
-          habits={habits}
-          getHabit={getHabit}
-          updateAnalysis={updateAnalysis}
-        />
-      )}
-    </PositionContainer>:<Loading/>
-  ;
+    <SubTitle style={{ width: 400 }}>My Goals</SubTitle>
+    {showButtonAddDeleteHabitAndAddAnalysis() ? (
+      <ButtonDefault onClick={addAnalysis}>
+        Analyze me <BsFillBarChartFill />
+      </ButtonDefault>
+    ) : analyses[analyses.length - 1]?.duration ? (
+      <h1>
+        You have completed only {analyses[analyses.length - 1]?.duration}
+        {analyses[analyses.length - 1]?.duration <= 1 ? " day" : " days"}
+      </h1>
+    ) : (
+      analyses[analyses.length - 1]?.duration === 0 ? 
+      <h1>Come back in the morning to start your weekly review</h1> :
+      <h1>You can do anything!</h1>
+    )}
+    <Habit
+      habits={habits}
+      getHabit={getHabit}
+      condition={showButtonAddDeleteHabitAndAddAnalysis}
+    />
+    {showButtonAddDeleteHabitAndAddAnalysis() && (
+      <ButtonDefault onClick={() => setValue(!value)}>Add Goal</ButtonDefault>
+    )}
+    {value && <NewHabit getHabit={getHabit} />}
+    {showComponentDaily && (
+      <DailyHabit
+        habits={habits}
+        getHabit={getHabit}
+        updateAnalysis={updateAnalysis}
+      />
+    )}
+  </PositionContainer> : <Loading />
+    ;
 };
